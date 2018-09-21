@@ -1,0 +1,244 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+a{
+    text-decoration: none;
+    list-style-type: none;
+}
+li{
+    list-style-type: none;
+    text-decoration: none;
+}
+.bar_head{
+    width: auto;
+    height: 50px;
+    absolute:relative;
+
+}
+.bar_head .bar_list{
+    float: left;
+    width: 50%;
+    height: 100%;
+    background-color: cornflowerblue;
+}
+.bar_head .bar_list ul{
+    float: left;
+    width: 100%;
+    height: 100%;
+    margin-left: 10%;
+}
+.bar_head .bar-nav li{
+    float: left;
+    list-style-type: none;
+    text-decoration: none;
+    background-color: white;
+    padding: 0.5%;
+    margin-left: 10%;
+    margin-top: 1.9%;
+
+}
+.bar_head .user_info{
+    float: right;
+    width:50%;
+    height: 100%;
+    background-color: cornflowerblue;
+}
+.bar_head .user_info ul{
+  /*  float: right;*/
+    width: 100%;
+    height: 100%;
+    margin-left: 50%;
+}
+
+.bar_head .user_info li{
+    float: left;
+    padding: 2%;
+    list-style-type: none;
+    text-decoration: none;
+    margin-right:5%;
+}
+.bar_foot{
+    width: auto;
+    height: 20%;
+    background-color: cornflowerblue;
+}
+p{
+    text-align: center;
+}
+
+.content{
+    height: 800px;
+}
+
+
+.content-left{
+    float: left;
+    align-content: left;
+    width: 10%;
+    height: 100%;
+}
+.content-left-head{
+    width: 100%;
+    height:10%;
+    background-color: rgba(220, 220, 220, 0.33);
+
+
+}
+.content-left-middle{
+    width: 100%;
+    height:90%;
+    margin-top: 10%;
+    background-color: rgba(220, 220, 220, 0.33);
+}
+
+.content-left-middle li{
+    text-align: center;
+    padding: 25%;
+    list-style-type: none;
+    text-decoration: none;
+    border-radius: 100%;
+}
+.content-left-middle li a{
+    color: #1b1e21;
+    text-align: center;
+}
+.content-left-middle li:hover{
+    background-color:  #4CAF50;
+}
+
+.content-right{
+    float: right;
+    align-content: right;
+    width: 89%;
+    height: 100%;
+    border-left: 2px solid darkgrey;
+}
+.content-right-head{
+    float:left;
+    width: 100%;
+    height: 10%;
+    border-bottom: 2px solid darkgrey;
+}
+
+/**
+文件上传控件
+@Authot:allen
+ */
+.content-right-head .upload_fileWidget{
+    display: none;
+    position: absolute;
+    width: 85%;
+    height: 80%;
+    background-color: white;
+    opacity:0.8;
+}
+.content-right-head .upload_fileWidget-title{
+    margin-top: 1%;
+    margin-left: 30%;
+    width: 40%;
+    height: 5%;
+    background-color: cornflowerblue;
+}
+
+.content-right-head .upload_fileWidget-title p{
+    width: 95%;
+    float: left;
+align-content: left;
+}
+
+
+.content-right-head .upload_fileWidget-content{
+margin-left: 30%;
+    width: 40%;
+    height: 50%;
+    border: 5px solid cornflowerblue;
+    background-color: white;
+    opacity:0.8;
+}
+.content-right-head .upload_fileWidget-content input{
+    margin-left: 50%;
+    margin-top: 30%;
+    background-color: white;
+}
+.content-right-head .upload_fileWidget-content .btn-operation{
+    margin-left: 60%;
+    margin-top: 1%;
+    padding: 5px;
+    background-color: white;
+    width: 30%;
+    height: 20%;
+}
+
+.content-right-head .upload_fileWidget-content .btn-operation button{
+    width: 50%;
+    height: 80%;
+    background-color: #4CAF50;
+    border-radius: 50%;
+    outline: none;
+}
+.content-right-head .upload_fileWidget-content .btn-operation button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.content-right-head .upload_fileWidget-content .btn-operation button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.content-right-content{
+    float: left;
+width: 80%;
+    border: 5px solid darkgrey;
+}
+
+/**
+弹出框控件样式
+ */
+.alert_widget{
+    float:right;
+    height: 200px;
+    width: 400px;
+    border:2px #058bec solid;
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin:-100px 0 0 -150px;
+    display: none;
+}
+.alert_widget .alert_widget_title{
+    height: 50px;
+    border-bottom: 1px #058bec solid;
+    background-color:#058bec
+}
+.alert_widget .alert_widget_title .alert_widget_title_left{
+    width: 48%;
+    height:100%;
+    float:left;
+}
+
+.alert_widget .alert_widget_title .alert_widget_title_right{
+    float:right;
+    width:48%;
+    height:100%;
+    text-align:right
+}
+
+.alert_widget .alert_widget_content{
+    height: 50%;
+    text-align: center
+}
+
+.alert_widget .alert_widget_foot{
+    text-align: right;
+}
+.alert_widget .alert_widget_foot button{
+    background-color: #058bec;
+    width: 80px;
+    height: 40px;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    outline: none;
+}
+

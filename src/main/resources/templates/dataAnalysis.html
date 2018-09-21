@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/barner::common_head">
+</head>
+<body>
+<div th:fragment="dataAnalysis">
+    <div class="data_analysis">
+        <div class="data_analysis_content-right">
+            <ul>
+                <li><button id="button1" onclick="standSubjectUpload"><a href="standSubjectUpload" style="color: #f8f9fa">标准科目与财务报表</a></button></li>
+                <li><button id="button2" onclick="upload_widget()">数据上传demo</button></li>
+                <li><button id="button3" onclick="upload_widget()"><a href="companyMappingStandSubjectUpload" style="color: #f8f9fa">标准科目</a></button></li>
+                <li><button id="button4" onclick="upload_widget()">数据上传模板待优化</button></li>
+                <li><button id="button5" onclick="alert_widget()">提示框demo</button></li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

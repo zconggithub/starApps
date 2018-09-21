@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>DIV CSS遮罩层</title>
+    <script language="javascript" type="text/javascript">
+        function showdiv() {
+            document.getElementById("bg").style.display ="block";
+            document.getElementById("show").style.display ="block";
+        }
+        function hidediv() {
+            document.getElementById("bg").style.display ='none';
+            document.getElementById("show").style.display ='none';
+        }
+    </script>
+    <style type="text/css">
+        .head{width: 100%;height: 50px;border: 2px solid grey;float: left}
+        .widget{width: 50%;height: 500px;border: 2px solid orange;float: left;background-color: lightgoldenrodyellow}
+        .content{width: 30%;height: 300px;border: 2px solid greenyellow;position: absolute;left:20%;background-color: cornflowerblue}
+
+            </style>
+</head>
+<body>
+
+<div class="head"></div>
+<div class="widget"></div>
+<div class="content"></div>
+</body>
+</html>  

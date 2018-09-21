@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+    <meta charset="UTF-8">
+    <title>starApp</title>
+</head>
+<body>
+
+<div>Error, by 404/500</div>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="/barner::common_head">
+
+</head>
+<body>
+<div class="main_body" th:fragment="main_fragment">
+
+
+
+<div th:replace="/barner::commonNav_header" ></div>
+<div class="main_content" th:replace="/barner::commonNav_content" ></div>
+<div th:replace="/barner::commonNav_footer" ></div>
+<div th:replace="/barner::common_alertWidget"></div>
+
+
+
+
+
+</div>
+
+
+</body>
+</html>

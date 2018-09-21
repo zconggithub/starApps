@@ -1,0 +1,39 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.data_analysis{
+    height: 500px;
+    border: 1px solid darkgrey;
+   /* background-color: rgba(220,103,103,0.33);*/
+
+}
+
+.data_analysis .data_analysis_content-right li{
+    float: left;
+/*    border: 1px solid darkseagreen;*/
+    margin: 1%;
+    /* padding: 1%;*/
+/*    border-radius: 200px;
+    width: 150px;
+    background-color: cornsilk;*/
+    text-align: center;
+}
+.data_analysis .data_analysis_content-right li button{
+    color: white;
+    border:none;
+    padding: 3%;
+    border-radius: 50%;
+    width: 150px;
+    height: 50px;
+    background-color: #4CAF50;
+    outline: none;
+}
+.data_analysis .data_analysis_content-right li button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.data_analysis .data_analysis_content-right li button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.starapp.dao.TInvoiceDataMapper">
+  <resultMap id="BaseResultMap" type="com.starapp.entity.TInvoiceData">
+    <id column="INVOICE_DATAID" jdbcType="VARCHAR" property="invoiceDataid" />
+    <result column="CREATEMAN" jdbcType="VARCHAR" property="createman" />
+    <result column="INVOICE_DATANAME" jdbcType="VARCHAR" property="invoiceDataname" />
+    <result column="UPDATEMAN" jdbcType="VARCHAR" property="updateman" />
+    <result column="CREATEDATE" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="UPDATEDATE" jdbcType="TIMESTAMP" property="updatedate" />
+    <result column="BILL_DATE" jdbcType="VARCHAR" property="billDate" />
+    <result column="TRANS_ID" jdbcType="VARCHAR" property="transId" />
+    <result column="FAPIAO_TYPE" jdbcType="VARCHAR" property="fapiaoType" />
+    <result column="GOODS_NAME" jdbcType="VARCHAR" property="goodsName" />
+    <result column="NET_AMT" jdbcType="DECIMAL" property="netAmt" />
+    <result column="TOTAL_AMT" jdbcType="DECIMAL" property="totalAmt" />
+    <result column="TAX_AMT" jdbcType="DECIMAL" property="taxAmt" />
+    <result column="TAX_RATE" jdbcType="DECIMAL" property="taxRate" />
+    <result column="PID" jdbcType="VARCHAR" property="pid" />
+    <result column="GLCODE" jdbcType="VARCHAR" property="glcode" />
+    <result column="INSTCODE" jdbcType="VARCHAR" property="instcode" />
+    <result column="TAX_ENTITYID" jdbcType="VARCHAR" property="taxEntityid" />
+    <result column="TAXPAYER_CODE" jdbcType="VARCHAR" property="taxpayerCode" />
+    <result column="DECLAR_OBJ_CODE" jdbcType="VARCHAR" property="declarObjCode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    INVOICE_DATAID, CREATEMAN, INVOICE_DATANAME, UPDATEMAN, CREATEDATE, UPDATEDATE, BILL_DATE, 
+    TRANS_ID, FAPIAO_TYPE, GOODS_NAME, NET_AMT, TOTAL_AMT, TAX_AMT, TAX_RATE, PID, GLCODE, 
+    INSTCODE, TAX_ENTITYID, TAXPAYER_CODE, DECLAR_OBJ_CODE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_invoice_data
+    where INVOICE_DATAID = #{invoiceDataid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_invoice_data
+    where INVOICE_DATAID = #{invoiceDataid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.starapp.entity.TInvoiceData">
+    insert into t_invoice_data (INVOICE_DATAID, CREATEMAN, INVOICE_DATANAME, 
+      UPDATEMAN, CREATEDATE, UPDATEDATE, 
+      BILL_DATE, TRANS_ID, FAPIAO_TYPE, 
+      GOODS_NAME, NET_AMT, TOTAL_AMT, 
+      TAX_AMT, TAX_RATE, PID, 
+      GLCODE, INSTCODE, TAX_ENTITYID, 
+      TAXPAYER_CODE, DECLAR_OBJ_CODE)
+    values (#{invoiceDataid,jdbcType=VARCHAR}, #{createman,jdbcType=VARCHAR}, #{invoiceDataname,jdbcType=VARCHAR}, 
+      #{updateman,jdbcType=VARCHAR}, #{createdate,jdbcType=TIMESTAMP}, #{updatedate,jdbcType=TIMESTAMP}, 
+      #{billDate,jdbcType=VARCHAR}, #{transId,jdbcType=VARCHAR}, #{fapiaoType,jdbcType=VARCHAR}, 
+      #{goodsName,jdbcType=VARCHAR}, #{netAmt,jdbcType=DECIMAL}, #{totalAmt,jdbcType=DECIMAL}, 
+      #{taxAmt,jdbcType=DECIMAL}, #{taxRate,jdbcType=DECIMAL}, #{pid,jdbcType=VARCHAR}, 
+      #{glcode,jdbcType=VARCHAR}, #{instcode,jdbcType=VARCHAR}, #{taxEntityid,jdbcType=VARCHAR}, 
+      #{taxpayerCode,jdbcType=VARCHAR}, #{declarObjCode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.starapp.entity.TInvoiceData">
+    insert into t_invoice_data
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="invoiceDataid != null">
+        INVOICE_DATAID,
+      </if>
+      <if test="createman != null">
+        CREATEMAN,
+      </if>
+      <if test="invoiceDataname != null">
+        INVOICE_DATANAME,
+      </if>
+      <if test="updateman != null">
+        UPDATEMAN,
+      </if>
+      <if test="createdate != null">
+        CREATEDATE,
+      </if>
+      <if test="updatedate != null">
+        UPDATEDATE,
+      </if>
+      <if test="billDate != null">
+        BILL_DATE,
+      </if>
+      <if test="transId != null">
+        TRANS_ID,
+      </if>
+      <if test="fapiaoType != null">
+        FAPIAO_TYPE,
+      </if>
+      <if test="goodsName != null">
+        GOODS_NAME,
+      </if>
+      <if test="netAmt != null">
+        NET_AMT,
+      </if>
+      <if test="totalAmt != null">
+        TOTAL_AMT,
+      </if>
+      <if test="taxAmt != null">
+        TAX_AMT,
+      </if>
+      <if test="taxRate != null">
+        TAX_RATE,
+      </if>
+      <if test="pid != null">
+        PID,
+      </if>
+      <if test="glcode != null">
+        GLCODE,
+      </if>
+      <if test="instcode != null">
+        INSTCODE,
+      </if>
+      <if test="taxEntityid != null">
+        TAX_ENTITYID,
+      </if>
+      <if test="taxpayerCode != null">
+        TAXPAYER_CODE,
+      </if>
+      <if test="declarObjCode != null">
+        DECLAR_OBJ_CODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="invoiceDataid != null">
+        #{invoiceDataid,jdbcType=VARCHAR},
+      </if>
+      <if test="createman != null">
+        #{createman,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceDataname != null">
+        #{invoiceDataname,jdbcType=VARCHAR},
+      </if>
+      <if test="updateman != null">
+        #{updateman,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedate != null">
+        #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="billDate != null">
+        #{billDate,jdbcType=VARCHAR},
+      </if>
+      <if test="transId != null">
+        #{transId,jdbcType=VARCHAR},
+      </if>
+      <if test="fapiaoType != null">
+        #{fapiaoType,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsName != null">
+        #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="netAmt != null">
+        #{netAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="totalAmt != null">
+        #{totalAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="taxAmt != null">
+        #{taxAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="taxRate != null">
+        #{taxRate,jdbcType=DECIMAL},
+      </if>
+      <if test="pid != null">
+        #{pid,jdbcType=VARCHAR},
+      </if>
+      <if test="glcode != null">
+        #{glcode,jdbcType=VARCHAR},
+      </if>
+      <if test="instcode != null">
+        #{instcode,jdbcType=VARCHAR},
+      </if>
+      <if test="taxEntityid != null">
+        #{taxEntityid,jdbcType=VARCHAR},
+      </if>
+      <if test="taxpayerCode != null">
+        #{taxpayerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="declarObjCode != null">
+        #{declarObjCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.starapp.entity.TInvoiceData">
+    update t_invoice_data
+    <set>
+      <if test="createman != null">
+        CREATEMAN = #{createman,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceDataname != null">
+        INVOICE_DATANAME = #{invoiceDataname,jdbcType=VARCHAR},
+      </if>
+      <if test="updateman != null">
+        UPDATEMAN = #{updateman,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedate != null">
+        UPDATEDATE = #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="billDate != null">
+        BILL_DATE = #{billDate,jdbcType=VARCHAR},
+      </if>
+      <if test="transId != null">
+        TRANS_ID = #{transId,jdbcType=VARCHAR},
+      </if>
+      <if test="fapiaoType != null">
+        FAPIAO_TYPE = #{fapiaoType,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsName != null">
+        GOODS_NAME = #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="netAmt != null">
+        NET_AMT = #{netAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="totalAmt != null">
+        TOTAL_AMT = #{totalAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="taxAmt != null">
+        TAX_AMT = #{taxAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="taxRate != null">
+        TAX_RATE = #{taxRate,jdbcType=DECIMAL},
+      </if>
+      <if test="pid != null">
+        PID = #{pid,jdbcType=VARCHAR},
+      </if>
+      <if test="glcode != null">
+        GLCODE = #{glcode,jdbcType=VARCHAR},
+      </if>
+      <if test="instcode != null">
+        INSTCODE = #{instcode,jdbcType=VARCHAR},
+      </if>
+      <if test="taxEntityid != null">
+        TAX_ENTITYID = #{taxEntityid,jdbcType=VARCHAR},
+      </if>
+      <if test="taxpayerCode != null">
+        TAXPAYER_CODE = #{taxpayerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="declarObjCode != null">
+        DECLAR_OBJ_CODE = #{declarObjCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where INVOICE_DATAID = #{invoiceDataid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.starapp.entity.TInvoiceData">
+    update t_invoice_data
+    set CREATEMAN = #{createman,jdbcType=VARCHAR},
+      INVOICE_DATANAME = #{invoiceDataname,jdbcType=VARCHAR},
+      UPDATEMAN = #{updateman,jdbcType=VARCHAR},
+      CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      UPDATEDATE = #{updatedate,jdbcType=TIMESTAMP},
+      BILL_DATE = #{billDate,jdbcType=VARCHAR},
+      TRANS_ID = #{transId,jdbcType=VARCHAR},
+      FAPIAO_TYPE = #{fapiaoType,jdbcType=VARCHAR},
+      GOODS_NAME = #{goodsName,jdbcType=VARCHAR},
+      NET_AMT = #{netAmt,jdbcType=DECIMAL},
+      TOTAL_AMT = #{totalAmt,jdbcType=DECIMAL},
+      TAX_AMT = #{taxAmt,jdbcType=DECIMAL},
+      TAX_RATE = #{taxRate,jdbcType=DECIMAL},
+      PID = #{pid,jdbcType=VARCHAR},
+      GLCODE = #{glcode,jdbcType=VARCHAR},
+      INSTCODE = #{instcode,jdbcType=VARCHAR},
+      TAX_ENTITYID = #{taxEntityid,jdbcType=VARCHAR},
+      TAXPAYER_CODE = #{taxpayerCode,jdbcType=VARCHAR},
+      DECLAR_OBJ_CODE = #{declarObjCode,jdbcType=VARCHAR}
+    where INVOICE_DATAID = #{invoiceDataid,jdbcType=VARCHAR}
+  </update>
+
+  <!--批量插入-->
+<insert id="insertBatch" parameterType="java.util.List">
+  insert into t_invoice_data (<include refid="Base_Column_List" />)
+  values
+  <foreach collection="list" item="item" index="index"  separator=",">
+    (uuid(), #{item.createman}, #{item.invoiceDataname},
+    #{item.updateman},SYSDATE(), SYSDATE(),
+    #{item.billDate}, #{item.transId}, #{item.fapiaoType},
+    #{item.goodsName}, #{item.netAmt}, #{item.totalAmt},
+    #{item.taxAmt}, #{item.taxRate}, #{item.pid},
+    #{item.glcode}, #{item.instcode}, #{item.taxEntityid},
+    #{item.taxpayerCode}, #{item.declarObjCode})
+  </foreach>
+</insert>
+</mapper>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="common_head">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+    <script src="/js/jquery-1.9.1.jquery.js"></script>
+    <script src="/js/main.js"></script>
+    <link href="/css/barner.css"  rel="stylesheet"/>
+    <link href="/css/dataAnalysis.css"  rel="stylesheet"/>
+    <link rel="stylesheet" href="/bootstrap/bootstrap_file/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/bootstrap/bootstrap_file/css/fileinput.css" />
+    <link rel="stylesheet" href="/bootstrap/bootstrap_file/css/fileinput.min.css" />
+    <script src="/bootstrap/bootstrap_file/js/bootstrap.min.js"></script>
+    <script src="/bootstrap/bootstrap_file/js/fileinput.js"></script>
+    <script src="/bootstrap/bootstrap_file/js/fileinput.min.js"></script>
+    <script src="/bootstrap/bootstrap_file/js/locales/zh.js"></script>
+    <title>StarApp</title>
+
+</head>
+<body>
+      <!--文件上传控件-->
+            <div class="container-fluid" style="width: 40%;height: 40%;" th:fragment="file_uploadWidget">
+                <form id="form" action="upload/importFile" method="post" enctype="multipart/form-data">
+                    <div class="row form-group">
+                        <label class="col-md-5" style="height: 30px;font-size: 20px;">文件上传:</label>
+                        <div class="col-sm-12">
+                            <input id="file_upload" name="file"  th:multiple="multiple" th:type="file" data-show-caption="true"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <script type="text/javascript">
+                $(function () {
+                    initFileInput("file_upload");
+                })
+                function initFileInput(ctrlName) {
+                    var control = $('#' + ctrlName);
+                    control.fileinput({
+                        language: 'zh', //设置语言
+                        uploadUrl: "upload/importFile", //上传的地址
+                        allowedFileExtensions:  ["xls","xlsx", "csv"],//['jpg', 'gif', 'png'],//接收的文件后缀
+                        //uploadExtraData:{"id": 1, "fileName":'123.mp3'},//上传的时候，增加的附加参数
+                        uploadAsync: true, //默认异步上传
+                        showUpload: true, //是否显示上传按钮
+                        showRemove : true, //显示移除按钮
+                        showPreview : true, //是否显示预览
+                        showCaption: false,//是否显示标题
+                        browseClass: "btn btn-primary", //按钮样式
+                        //dropZoneEnabled: true,//是否显示拖拽区域
+                        //minImageWidth: 50, //图片的最小宽度
+                        //minImageHeight: 50,//图片的最小高度
+                        //maxImageWidth: 1000,//图片的最大宽度
+                        //maxImageHeight: 1000,//图片的最大高度
+                        maxFileSize: 0,//单位为kb，如果为0表示不限制文件大小
+                        //minFileCount: 0,
+                        maxFileCount: 3, //表示允许同时上传的最大文件个数
+                        enctype: 'multipart/form-data',
+                        validateInitialCount:true,
+                        //previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
+                        msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
+                        /*  previewFileIconSettings: {
+                              'docx': '<i ass="fa fa-file-word-o text-primary"></i>',
+                              'xlsx': '<i class="fa fa-file-excel-o text-success"></i>',
+                              'xls': '<i class="fa fa-file-excel-o text-success"></i>',
+                              'pptx': '<i class="fa fa-file-powerpoint-o text-danger"></i>',
+                              'jpg': '<i class="fa fa-file-photo-o text-warning"></i>',
+                              'pdf': '<i class="fa fa-file-archive-o text-muted"></i>',
+                              'zip': '<i class="fa fa-file-archive-o text-muted"></i>',
+                          },*/
+
+                    }).on('filepreupload', function(event, data, previewId, index) {     //上传中
+                        var form = data.form, files = data.files, extra = data.extra,
+                            response = data.response, reader = data.reader;
+                        console.log('文件正在上传');
+                    }).on("fileuploaded", function (event, data, previewId, index) {    //一个文件上传成功
+                        console.log('文件上传成功！'+data.id);
+
+                    }).on('fileerror', function(event, data, msg) {  //一个文件上传失败
+                        console.log('文件上传失败！'+data.id);
+
+
+                    })
+                }
+            </script>
+
+</body>
+</html>

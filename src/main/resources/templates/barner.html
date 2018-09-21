@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="common_head">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+    <script src="/js/jquery-1.9.1.jquery.js"></script>
+    <script src="/js/main.js"></script>
+    <link href="/css/barner.css"  rel="stylesheet"/>
+    <link href="/css/dataAnalysis.css"  rel="stylesheet"/>
+    <link th:href="@{/bootstrap/bootstrap_file/css/bootstrap.min.css}" rel="stylesheet"  />
+    <link th:href="@{/bootstrap/bootstrap_file/css/fileinput.css}" rel="stylesheet"/>
+    <link th:href="@{/bootstrap/bootstrap_file/css/fileinput.min.css}" rel="stylesheet"/>
+    <script th:src="@{/bootstrap/bootstrap_file/js/bootstrap.min.js}"></script>
+    <script th:src="@{/bootstrap/bootstrap_file/js/fileinput.js}"></script>
+    <script th:src="@{/bootstrap/bootstrap_file/js/fileinput.min.js}"></script>
+    <script th:src="@{/bootstrap/bootstrap_file/js/locales/zh.js}"></script>
+    <title>StarApp</title>
+
+
+
+</head>
+<body>
+
+            <div class="bar_head" th:fragment="commonNav_header">
+                <div class="bar_list">
+                    <ul class="bar-nav">
+                        <li><a href="#">导航一</a></li>
+                        <li><a href="#">导航二</a></li>
+                        <li><a href="#">导航三</a></li>
+                        <li><a href="#">导航四</a></li>
+                    </ul>
+                </div>
+                <div class="user_info">
+
+                <ul>
+                    <li>账户<input id="account"/></li>
+                    <!--<li><a href="#">登陆</a></li>
+                    <li><a href="#">注册</a></li>-->
+                    <li><a href="#">注销</a></li>
+                    <li><a href="#">待办</a></li>
+                </ul>
+                </div>
+
+            </div>
+            <div class="content" th:fragment="commonNav_content">
+                    <div class="content-left" th:fragment="commonNav_content-left">
+                        <div class="content-left-head"></div>
+                        <div class="content-left-middle">
+                            <ul>
+                                <li><a href="#">菜单一</a></li>
+                                <li><a href="#">菜单二</a></li>
+                                <li><a href="#">菜单三</a></li>
+                                <li><a href="#">菜单四</a></li>
+                                <li><a href="#">报表维护</a></li>
+                                <li><a href="data_analysis">数据解析</a></li>
+                            </ul>
+
+                        </div>
+                     </div>
+                    <div class="content-right" th:fragment="commonNav_content-right">
+
+                        <div class="content-right-head">
+                            <div class="upload_fileWidget" id="upload_fileWidget">
+                                <div class="upload_fileWidget-title"><p style="text-align: left;">文件上传</p>
+                                    <img src="/image/close_window.png" height="17" width="17" onclick="close_file_Widget()"/></div>
+                                <div class="upload_fileWidget-content">
+
+                                    <form action="uploadFile" method="post" enctype="multipart/form-data">
+                                    <input id="file" type="file" name="file" multiple="multiple"/>
+                                    <div class="btn-operation"><button class="remove-btn">删除</button><button TYPE="submit" class="submit-btn" onclick="uploadFile()">上传</button></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-right-content">
+                            <div th:replace="/dataAnalysis::dataAnalysis"></div><!--数据分析模块-->
+
+                        </div>
+                        <div class="content-right-content-middle">
+
+                            </div>
+                        </div>
+                        <div class="content-right-content-left"></div>
+
+
+
+
+                    </div>
+
+
+            <div class="bar_foot" th:fragment="commonNav_footer">
+                <p>&copy; 2018 allen</p>
+            </div>
+
+
+            <!--弹框控件-->
+            <div class="alert_widget" th:fragment="common_alertWidget" id="alert_widget">
+                <div class="alert_widget_title">
+                    <div class="alert_widget_title_left">警 告</div>
+                    <div class="alert_widget_title_right">
+                        <img id="close_window" src="/image/close_window.png" height="17" width="17" onclick="close_window_Widget()"/></div>
+                </div>
+                    <div class="alert_widget_content">
+                        <p><span style="align-content: center">提示信息</span></p>
+                    </div>
+                    <div class="alert_widget_foot">
+                        <button id="close_button" onclick="close_window_Widget()">确认</button>
+                    </div>
+            </div>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.starapp.dao.StandardSubjectFinanceMapper">
+  <resultMap id="BaseResultMap" type="com.starapp.entity.StandardSubjectFinance">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="STANDARD_SUBJECTS_CODE" jdbcType="VARCHAR" property="standardSubjectsCode" />
+    <result column="STANDARD_SUBJECTS_NAME" jdbcType="VARCHAR" property="standardSubjectsName" />
+    <result column="FINANCE_NO" jdbcType="VARCHAR" property="financeNo" />
+    <result column="FINANCE_TYPE" jdbcType="VARCHAR" property="financeType" />
+    <result column="FINANCE_NO_NAME" jdbcType="VARCHAR" property="financeNoName" />
+    <result column="CREATEDATE" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="UPDATEDATE" jdbcType="TIMESTAMP" property="updatedate" />
+    <result column="FINANCE_TYPE_NAME" jdbcType="VARCHAR" property="financeTypeName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, STANDARD_SUBJECTS_CODE, STANDARD_SUBJECTS_NAME, FINANCE_NO, FINANCE_TYPE, FINANCE_NO_NAME, 
+    CREATEDATE, UPDATEDATE, FINANCE_TYPE_NAME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from standard_subject_finance
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from standard_subject_finance
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.starapp.entity.StandardSubjectFinance">
+    insert into standard_subject_finance (STANDARD_SUBJECTS_CODE, STANDARD_SUBJECTS_NAME,
+      FINANCE_NO, FINANCE_TYPE, FINANCE_NO_NAME, 
+      CREATEDATE, UPDATEDATE, FINANCE_TYPE_NAME
+      )
+    values (#{standardSubjectsCode,jdbcType=VARCHAR}, #{standardSubjectsName,jdbcType=VARCHAR},
+      #{financeNo,jdbcType=VARCHAR}, #{financeType,jdbcType=VARCHAR}, #{financeNoName,jdbcType=VARCHAR}, 
+      #{createdate,jdbcType=TIMESTAMP}, #{updatedate,jdbcType=TIMESTAMP}, #{financeTypeName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.starapp.entity.StandardSubjectFinance">
+    insert into standard_subject_finance
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="standardSubjectsCode != null">
+        STANDARD_SUBJECTS_CODE,
+      </if>
+      <if test="standardSubjectsName != null">
+        STANDARD_SUBJECTS_NAME,
+      </if>
+      <if test="financeNo != null">
+        FINANCE_NO,
+      </if>
+      <if test="financeType != null">
+        FINANCE_TYPE,
+      </if>
+      <if test="financeNoName != null">
+        FINANCE_NO_NAME,
+      </if>
+      <if test="createdate != null">
+        CREATEDATE,
+      </if>
+      <if test="updatedate != null">
+        UPDATEDATE,
+      </if>
+      <if test="financeTypeName != null">
+        FINANCE_TYPE_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="standardSubjectsCode != null">
+        #{standardSubjectsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="standardSubjectsName != null">
+        #{standardSubjectsName,jdbcType=VARCHAR},
+      </if>
+      <if test="financeNo != null">
+        #{financeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="financeType != null">
+        #{financeType,jdbcType=VARCHAR},
+      </if>
+      <if test="financeNoName != null">
+        #{financeNoName,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedate != null">
+        #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="financeTypeName != null">
+        #{financeTypeName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.starapp.entity.StandardSubjectFinance">
+    update standard_subject_finance
+    <set>
+      <if test="standardSubjectsCode != null">
+        STANDARD_SUBJECTS_CODE = #{standardSubjectsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="standardSubjectsName != null">
+        STANDARD_SUBJECTS_NAME = #{standardSubjectsName,jdbcType=VARCHAR},
+      </if>
+      <if test="financeNo != null">
+        FINANCE_NO = #{financeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="financeType != null">
+        FINANCE_TYPE = #{financeType,jdbcType=VARCHAR},
+      </if>
+      <if test="financeNoName != null">
+        FINANCE_NO_NAME = #{financeNoName,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedate != null">
+        UPDATEDATE = #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="financeTypeName != null">
+        FINANCE_TYPE_NAME = #{financeTypeName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.starapp.entity.StandardSubjectFinance">
+    update standard_subject_finance
+    set STANDARD_SUBJECTS_CODE = #{standardSubjectsCode,jdbcType=VARCHAR},
+      STANDARD_SUBJECTS_NAME = #{standardSubjectsName,jdbcType=VARCHAR},
+      FINANCE_NO = #{financeNo,jdbcType=VARCHAR},
+      FINANCE_TYPE = #{financeType,jdbcType=VARCHAR},
+      FINANCE_NO_NAME = #{financeNoName,jdbcType=VARCHAR},
+      CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      UPDATEDATE = #{updatedate,jdbcType=TIMESTAMP},
+      FINANCE_TYPE_NAME = #{financeTypeName,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+
+  <!--此处应该多注意：特别是主键自增形式-->
+  <insert id="batchInsertStandardSubjectFinance" useGeneratedKeys="true" keyProperty="id" parameterType="java.util.List">
+  insert into standard_subject_finance (STANDARD_SUBJECTS_CODE, STANDARD_SUBJECTS_NAME,
+      FINANCE_NO, FINANCE_TYPE, FINANCE_NO_NAME,
+      CREATEDATE, UPDATEDATE, FINANCE_TYPE_NAME
+      )
+    values
+    <foreach collection="list" item="item" index="index"  separator=",">
+      (#{item.standardSubjectsCode}, #{item.standardSubjectsName},
+      #{item.financeNo},#{item.financeType}, #{item.financeNoName},
+      SYSDATE(), SYSDATE(),#{item.financeTypeName})
+    </foreach>
+  </insert>
+</mapper>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta content="text/html;charset=UTF-8" />
+    <title>StarApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link th:href="@{/css/index.css}" rel="stylesheet" />
+    <script th:src="@{/js/index.js}"></script>
+    <script th:src="@{/js/jquery-1.9.1.jquery.js}"></script>
+</head>
+<body>
+<div class="login_container">
+
+    <div class="loin_title">
+        <span>Star App</span>
+    </div>
+    <div class="login_part">
+        <div id="login_user" class="login_user">
+            <form class="login" th:action="@{/login}" >
+                <p><span></span></p>
+                <table class="login_table">
+                    <thead>
+                    <tr><td>账户</td><td><input id="account" name="userAccount"/></td><td></td></tr>
+                    <tr><td>密码</td><td><input id="pwd" name="pwd" type="userPassword"/></td><td></td></tr>
+                    </thead>
+                </table>
+            </form>
+        </div>
+        <div class="login_button">
+            <p><button onclick="login()">登陆</button></p>
+            <p><button onclick="register()">注册</button></p>
+            <p><a style="color: red" href="forget_pwd">忘记密码</a></p>
+            <!-- 用于第三方登录 -->
+            <p id="third_login"></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
