@@ -106,21 +106,21 @@
                             </div>
                         </div>
                         <div class="ibox-content">
-                            <form id="formTag" action="newsCategoryEdit" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                            <form id="dataSourceFormTag" action="/starApp/addDataSource" method="POST" class="form-horizontal">
 
-                                <div class="form-group"><label class="col-sm-3 control-label">数据元名称：</label>
+                                <div class="form-group"><label class="col-sm-3 control-label" >数据元名称：</label>
                                     <div class="col-sm-6">
-                                        <input id="name" name="name" type="text" class="form-control" />
+                                        <input id="realAnme" name="realAnme" type="text" class="form-control" />
                                     </div>
                                 </div>
                                 <div class="form-group"><label class="col-sm-3 control-label">描述：</label>
                                     <div class="col-sm-6">
-                                        <textarea id="description" name="description" class="form-control" rows="2"></textarea>
+                                        <textarea id="description" name="fileDescription" class="form-control" rows="2"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-4 col-sm-offset-2">
-                                        <button id="submitButton" class="btn btn-primary" type="button">&nbsp;&nbsp;&nbsp;&nbsp;提&nbsp;&nbsp;&nbsp;&nbsp;交&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                                        <button id="submitButton_dataSource" class="btn btn-primary" type="submit">&nbsp;&nbsp;&nbsp;&nbsp;提&nbsp;&nbsp;&nbsp;&nbsp;交&nbsp;&nbsp;&nbsp;&nbsp;</button>
                                     </div>
                                 </div>
                             </form>
@@ -140,14 +140,25 @@
                                     <table class="table table-hover no-margins">
                                         <thead>
                                         <tr>
-                                            <th>数据元名称</th>
-                                            <th>描述</th>
-                                            <th>创建时间</th>
-                                            <th>修改时间</th>
-                                            <th>操作</th>
+                                            <th class="text-center">序号</th>
+                                            <th class="text-center">数据元名称</th>
+                                           <th class="text-center">描述</th>
+                                            <th class="text-center">修改时间</th>
+                                            <th class="text-center">操作</th>
                                         </tr>
                                         </thead>
-                                    </table>
+
+                                         <tr th:each="Tfile:${AllDataSource}">
+                                             <td class="text-center" th:text="${Tfile.id}"></td>
+                                             <td class="text-center" th:text="${Tfile.realAnme}"></td>
+                                             <td class="text-center" th:text="${Tfile.fileDescription}"></td>
+                                             <td class="text-center" th:text="${Tfile.createdate}"></td>
+                                            <!-- <td th:text="${Tfile.size}"></td>
+                                             <td >dfsdgfs</td>
+                                            <td th:text="${Tfile.realAnme}"></td>-->
+                                        </tr>
+
+                                            </table>
 
                                 </div>
                             </div>
@@ -233,11 +244,21 @@
                 }
                 $("#formTag").submit();
             });
+                $("#submitButton_dataSource").click(function () {
+                    //添加数据元
+                    if($("#realAnme").val()==""){
+                        toastr.error('数据元名称为空，请填写', '提示')
+                        return false;
+                    }else{
+                        $("#dataSourceFormTag").submit();
+                    }
+                });
         });
 
 
     </script>
     <script th:inline="javascript">
+        //数据元导入
         /*<![CDATA[*/
         var message = [[${importSuccessFlag}]];
         console.log(message);
@@ -248,7 +269,20 @@
             }else {
                 toastr.error(message, '提示')
             }
-        }
+        };
+        //数据元添加
+        /*<![CDATA[*/
+        var dataSourceAddSuccessFlag = [[${dataSourceAddSuccessFlag}]];
+        console.log(dataSourceAddSuccessFlag);
+        /*]]>*/
+        if(dataSourceAddSuccessFlag) {
+            if(dataSourceAddSuccessFlag.indexOf("OK")!=-1){
+                toastr.success(dataSourceAddSuccessFlag, '提示')
+            }else {
+                toastr.error(dataSourceAddSuccessFlag, '提示')
+            }
+        };
+
     </script>
 
 

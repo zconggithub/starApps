@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.starapp.dao.TsubjectMapper">
+  <resultMap id="BaseResultMap" type="com.starapp.entity.Tsubject">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="ND_DM" jdbcType="VARCHAR" property="ndDm" />
+    <result column="KM_DM" jdbcType="VARCHAR" property="kmDm" />
+    <result column="KMMC" jdbcType="VARCHAR" property="kmmc" />
+    <result column="KMLX" jdbcType="VARCHAR" property="kmlx" />
+    <result column="KMFX" jdbcType="VARCHAR" property="kmfx" />
+    <result column="FJKM_DM" jdbcType="VARCHAR" property="fjkmDm" />
+    <result column="LEVEL" jdbcType="INTEGER" property="level" />
+    <result column="CREATEMAN" jdbcType="VARCHAR" property="createman" />
+    <result column="CREATEDATE" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="UPDATEMAN" jdbcType="VARCHAR" property="updateman" />
+    <result column="UPDATEDATE" jdbcType="TIMESTAMP" property="updatedate" />
+    <result column="STANDARD_SUBJECTS_CODE" jdbcType="VARCHAR" property="standardSubjectsCode" />
+    <result column="STANDARD_SUBJECTS_NAME" jdbcType="VARCHAR" property="standardSubjectsName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, ND_DM, KM_DM, KMMC, KMLX, KMFX, FJKM_DM, LEVEL, CREATEMAN, CREATEDATE, UPDATEMAN, 
+    UPDATEDATE, STANDARD_SUBJECTS_CODE, STANDARD_SUBJECTS_NAME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_subject
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_subject
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.starapp.entity.Tsubject">
+    insert into t_subject (ID, ND_DM, KM_DM, 
+      KMMC, KMLX, KMFX, FJKM_DM, 
+      LEVEL, CREATEMAN, CREATEDATE, 
+      UPDATEMAN, UPDATEDATE, STANDARD_SUBJECTS_CODE, 
+      STANDARD_SUBJECTS_NAME)
+    values (#{id,jdbcType=BIGINT}, #{ndDm,jdbcType=VARCHAR}, #{kmDm,jdbcType=VARCHAR}, 
+      #{kmmc,jdbcType=VARCHAR}, #{kmlx,jdbcType=VARCHAR}, #{kmfx,jdbcType=VARCHAR}, #{fjkmDm,jdbcType=VARCHAR}, 
+      #{level,jdbcType=INTEGER}, #{createman,jdbcType=VARCHAR}, #{createdate,jdbcType=TIMESTAMP}, 
+      #{updateman,jdbcType=VARCHAR}, #{updatedate,jdbcType=TIMESTAMP}, #{standardSubjectsCode,jdbcType=VARCHAR}, 
+      #{standardSubjectsName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.starapp.entity.Tsubject">
+    insert into t_subject
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="ndDm != null">
+        ND_DM,
+      </if>
+      <if test="kmDm != null">
+        KM_DM,
+      </if>
+      <if test="kmmc != null">
+        KMMC,
+      </if>
+      <if test="kmlx != null">
+        KMLX,
+      </if>
+      <if test="kmfx != null">
+        KMFX,
+      </if>
+      <if test="fjkmDm != null">
+        FJKM_DM,
+      </if>
+      <if test="level != null">
+        LEVEL,
+      </if>
+      <if test="createman != null">
+        CREATEMAN,
+      </if>
+      <if test="createdate != null">
+        CREATEDATE,
+      </if>
+      <if test="updateman != null">
+        UPDATEMAN,
+      </if>
+      <if test="updatedate != null">
+        UPDATEDATE,
+      </if>
+      <if test="standardSubjectsCode != null">
+        STANDARD_SUBJECTS_CODE,
+      </if>
+      <if test="standardSubjectsName != null">
+        STANDARD_SUBJECTS_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="ndDm != null">
+        #{ndDm,jdbcType=VARCHAR},
+      </if>
+      <if test="kmDm != null">
+        #{kmDm,jdbcType=VARCHAR},
+      </if>
+      <if test="kmmc != null">
+        #{kmmc,jdbcType=VARCHAR},
+      </if>
+      <if test="kmlx != null">
+        #{kmlx,jdbcType=VARCHAR},
+      </if>
+      <if test="kmfx != null">
+        #{kmfx,jdbcType=VARCHAR},
+      </if>
+      <if test="fjkmDm != null">
+        #{fjkmDm,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null">
+        #{level,jdbcType=INTEGER},
+      </if>
+      <if test="createman != null">
+        #{createman,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateman != null">
+        #{updateman,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedate != null">
+        #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="standardSubjectsCode != null">
+        #{standardSubjectsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="standardSubjectsName != null">
+        #{standardSubjectsName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.starapp.entity.Tsubject">
+    update t_subject
+    <set>
+      <if test="ndDm != null">
+        ND_DM = #{ndDm,jdbcType=VARCHAR},
+      </if>
+      <if test="kmDm != null">
+        KM_DM = #{kmDm,jdbcType=VARCHAR},
+      </if>
+      <if test="kmmc != null">
+        KMMC = #{kmmc,jdbcType=VARCHAR},
+      </if>
+      <if test="kmlx != null">
+        KMLX = #{kmlx,jdbcType=VARCHAR},
+      </if>
+      <if test="kmfx != null">
+        KMFX = #{kmfx,jdbcType=VARCHAR},
+      </if>
+      <if test="fjkmDm != null">
+        FJKM_DM = #{fjkmDm,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null">
+        LEVEL = #{level,jdbcType=INTEGER},
+      </if>
+      <if test="createman != null">
+        CREATEMAN = #{createman,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateman != null">
+        UPDATEMAN = #{updateman,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedate != null">
+        UPDATEDATE = #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="standardSubjectsCode != null">
+        STANDARD_SUBJECTS_CODE = #{standardSubjectsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="standardSubjectsName != null">
+        STANDARD_SUBJECTS_NAME = #{standardSubjectsName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.starapp.entity.Tsubject">
+    update t_subject
+    set ND_DM = #{ndDm,jdbcType=VARCHAR},
+      KM_DM = #{kmDm,jdbcType=VARCHAR},
+      KMMC = #{kmmc,jdbcType=VARCHAR},
+      KMLX = #{kmlx,jdbcType=VARCHAR},
+      KMFX = #{kmfx,jdbcType=VARCHAR},
+      FJKM_DM = #{fjkmDm,jdbcType=VARCHAR},
+      LEVEL = #{level,jdbcType=INTEGER},
+      CREATEMAN = #{createman,jdbcType=VARCHAR},
+      CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      UPDATEMAN = #{updateman,jdbcType=VARCHAR},
+      UPDATEDATE = #{updatedate,jdbcType=TIMESTAMP},
+      STANDARD_SUBJECTS_CODE = #{standardSubjectsCode,jdbcType=VARCHAR},
+      STANDARD_SUBJECTS_NAME = #{standardSubjectsName,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+
+
+</mapper>

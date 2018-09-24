@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.starapp.dao.TfileMapper">
+  <resultMap id="BaseResultMap" type="com.starapp.entity.Tfile">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="PATH" jdbcType="VARCHAR" property="path" />
+    <result column="REAL_ANME" jdbcType="VARCHAR" property="realAnme" />
+    <result column="SIZE" jdbcType="VARCHAR" property="size" />
+    <result column="TYPE" jdbcType="VARCHAR" property="type" />
+    <result column="MODULAR" jdbcType="VARCHAR" property="modular" />
+    <result column="REF_ID" jdbcType="VARCHAR" property="refId" />
+    <result column="CREATEMAN" jdbcType="VARCHAR" property="createman" />
+    <result column="CREATEDATE" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="UPDATEMAN" jdbcType="VARCHAR" property="updateman" />
+    <result column="UPDATEDATE" jdbcType="TIMESTAMP" property="updatedate" />
+    <result column="file_description" jdbcType="VARCHAR" property="fileDescription" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, PATH, REAL_ANME, SIZE, TYPE, MODULAR, REF_ID, CREATEMAN, CREATEDATE, UPDATEMAN, 
+    UPDATEDATE, file_description
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_file
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_file
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.starapp.entity.Tfile">
+    insert into t_file (PATH, REAL_ANME,
+      SIZE, TYPE, MODULAR, 
+      REF_ID, CREATEMAN, CREATEDATE, 
+      UPDATEMAN, UPDATEDATE, file_description
+      )
+    values (#{path,jdbcType=VARCHAR}, #{realAnme,jdbcType=VARCHAR},
+      #{size,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{modular,jdbcType=VARCHAR}, 
+      #{refId,jdbcType=VARCHAR}, #{createman,jdbcType=VARCHAR},SYSDATE(),
+      #{updateman,jdbcType=VARCHAR}, SYSDATE(), #{fileDescription,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.starapp.entity.Tfile">
+    insert into t_file
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="path != null">
+        PATH,
+      </if>
+      <if test="realAnme != null">
+        REAL_ANME,
+      </if>
+      <if test="size != null">
+        SIZE,
+      </if>
+      <if test="type != null">
+        TYPE,
+      </if>
+      <if test="modular != null">
+        MODULAR,
+      </if>
+      <if test="refId != null">
+        REF_ID,
+      </if>
+      <if test="createman != null">
+        CREATEMAN,
+      </if>
+      <if test="createdate != null">
+        CREATEDATE,
+      </if>
+      <if test="updateman != null">
+        UPDATEMAN,
+      </if>
+      <if test="updatedate != null">
+        UPDATEDATE,
+      </if>
+      <if test="fileDescription != null">
+        file_description,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="path != null">
+        #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="realAnme != null">
+        #{realAnme,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null">
+        #{size,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="modular != null">
+        #{modular,jdbcType=VARCHAR},
+      </if>
+      <if test="refId != null">
+        #{refId,jdbcType=VARCHAR},
+      </if>
+      <if test="createman != null">
+        #{createman,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateman != null">
+        #{updateman,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedate != null">
+        #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fileDescription != null">
+        #{fileDescription,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.starapp.entity.Tfile">
+    update t_file
+    <set>
+      <if test="path != null">
+        PATH = #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="realAnme != null">
+        REAL_ANME = #{realAnme,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null">
+        SIZE = #{size,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        TYPE = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="modular != null">
+        MODULAR = #{modular,jdbcType=VARCHAR},
+      </if>
+      <if test="refId != null">
+        REF_ID = #{refId,jdbcType=VARCHAR},
+      </if>
+      <if test="createman != null">
+        CREATEMAN = #{createman,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateman != null">
+        UPDATEMAN = #{updateman,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedate != null">
+        UPDATEDATE = #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fileDescription != null">
+        file_description = #{fileDescription,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.starapp.entity.Tfile">
+    update t_file
+    set PATH = #{path,jdbcType=VARCHAR},
+      REAL_ANME = #{realAnme,jdbcType=VARCHAR},
+      SIZE = #{size,jdbcType=VARCHAR},
+      TYPE = #{type,jdbcType=VARCHAR},
+      MODULAR = #{modular,jdbcType=VARCHAR},
+      REF_ID = #{refId,jdbcType=VARCHAR},
+      CREATEMAN = #{createman,jdbcType=VARCHAR},
+      CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      UPDATEMAN = #{updateman,jdbcType=VARCHAR},
+      UPDATEDATE = #{updatedate,jdbcType=TIMESTAMP},
+      file_description = #{fileDescription,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+
+
+  <!--注意：返回值resultType和resultMap，此处若是resultType,返回部分值为null -->
+  <select id="getAllDataSource" resultMap="BaseResultMap">
+
+    select <include refid="Base_Column_List" /> from t_file where 1=1;
+
+  </select>
+</mapper>

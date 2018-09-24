@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.starapp.dao.TvoucherMapper">
+  <resultMap id="BaseResultMap" type="com.starapp.entity.Tvoucher">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="ND_DM" jdbcType="VARCHAR" property="ndDm" />
+    <result column="KJQJ" jdbcType="INTEGER" property="kjqj" />
+    <result column="PZZ" jdbcType="VARCHAR" property="pzz" />
+    <result column="PZH" jdbcType="VARCHAR" property="pzh" />
+    <result column="FLH" jdbcType="INTEGER" property="flh" />
+    <result column="PZ_RQ" jdbcType="TIMESTAMP" property="pzRq" />
+    <result column="FLZY" jdbcType="VARCHAR" property="flzy" />
+    <result column="KM_DM" jdbcType="VARCHAR" property="kmDm" />
+    <result column="JFJE" jdbcType="DECIMAL" property="jfje" />
+    <result column="DFJE" jdbcType="DECIMAL" property="dfje" />
+    <result column="WBBZ" jdbcType="VARCHAR" property="wbbz" />
+    <result column="WBJFJE" jdbcType="DECIMAL" property="wbjfje" />
+    <result column="WBDFJE" jdbcType="DECIMAL" property="wbdfje" />
+    <result column="SHR" jdbcType="VARCHAR" property="shr" />
+    <result column="ZDR" jdbcType="VARCHAR" property="zdr" />
+    <result column="JZR" jdbcType="VARCHAR" property="jzr" />
+    <result column="CN" jdbcType="VARCHAR" property="cn" />
+    <result column="FJS" jdbcType="INTEGER" property="fjs" />
+    <result column="CREATEMAN" jdbcType="VARCHAR" property="createman" />
+    <result column="CREATEDATE" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="UPDATEMAN" jdbcType="VARCHAR" property="updateman" />
+    <result column="UPDATEDATE" jdbcType="TIMESTAMP" property="updatedate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, ND_DM, KJQJ, PZZ, PZH, FLH, PZ_RQ, FLZY, KM_DM, JFJE, DFJE, WBBZ, WBJFJE, WBDFJE, 
+    SHR, ZDR, JZR, CN, FJS, CREATEMAN, CREATEDATE, UPDATEMAN, UPDATEDATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_voucher
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_voucher
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.starapp.entity.Tvoucher">
+    insert into t_voucher (ID, ND_DM, KJQJ, 
+      PZZ, PZH, FLH, PZ_RQ, 
+      FLZY, KM_DM, JFJE, DFJE, 
+      WBBZ, WBJFJE, WBDFJE, 
+      SHR, ZDR, JZR, CN, 
+      FJS, CREATEMAN, CREATEDATE, 
+      UPDATEMAN, UPDATEDATE)
+    values (#{id,jdbcType=BIGINT}, #{ndDm,jdbcType=VARCHAR}, #{kjqj,jdbcType=INTEGER}, 
+      #{pzz,jdbcType=VARCHAR}, #{pzh,jdbcType=VARCHAR}, #{flh,jdbcType=INTEGER}, #{pzRq,jdbcType=TIMESTAMP}, 
+      #{flzy,jdbcType=VARCHAR}, #{kmDm,jdbcType=VARCHAR}, #{jfje,jdbcType=DECIMAL}, #{dfje,jdbcType=DECIMAL}, 
+      #{wbbz,jdbcType=VARCHAR}, #{wbjfje,jdbcType=DECIMAL}, #{wbdfje,jdbcType=DECIMAL}, 
+      #{shr,jdbcType=VARCHAR}, #{zdr,jdbcType=VARCHAR}, #{jzr,jdbcType=VARCHAR}, #{cn,jdbcType=VARCHAR}, 
+      #{fjs,jdbcType=INTEGER}, #{createman,jdbcType=VARCHAR}, #{createdate,jdbcType=TIMESTAMP}, 
+      #{updateman,jdbcType=VARCHAR}, #{updatedate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.starapp.entity.Tvoucher">
+    insert into t_voucher
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="ndDm != null">
+        ND_DM,
+      </if>
+      <if test="kjqj != null">
+        KJQJ,
+      </if>
+      <if test="pzz != null">
+        PZZ,
+      </if>
+      <if test="pzh != null">
+        PZH,
+      </if>
+      <if test="flh != null">
+        FLH,
+      </if>
+      <if test="pzRq != null">
+        PZ_RQ,
+      </if>
+      <if test="flzy != null">
+        FLZY,
+      </if>
+      <if test="kmDm != null">
+        KM_DM,
+      </if>
+      <if test="jfje != null">
+        JFJE,
+      </if>
+      <if test="dfje != null">
+        DFJE,
+      </if>
+      <if test="wbbz != null">
+        WBBZ,
+      </if>
+      <if test="wbjfje != null">
+        WBJFJE,
+      </if>
+      <if test="wbdfje != null">
+        WBDFJE,
+      </if>
+      <if test="shr != null">
+        SHR,
+      </if>
+      <if test="zdr != null">
+        ZDR,
+      </if>
+      <if test="jzr != null">
+        JZR,
+      </if>
+      <if test="cn != null">
+        CN,
+      </if>
+      <if test="fjs != null">
+        FJS,
+      </if>
+      <if test="createman != null">
+        CREATEMAN,
+      </if>
+      <if test="createdate != null">
+        CREATEDATE,
+      </if>
+      <if test="updateman != null">
+        UPDATEMAN,
+      </if>
+      <if test="updatedate != null">
+        UPDATEDATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="ndDm != null">
+        #{ndDm,jdbcType=VARCHAR},
+      </if>
+      <if test="kjqj != null">
+        #{kjqj,jdbcType=INTEGER},
+      </if>
+      <if test="pzz != null">
+        #{pzz,jdbcType=VARCHAR},
+      </if>
+      <if test="pzh != null">
+        #{pzh,jdbcType=VARCHAR},
+      </if>
+      <if test="flh != null">
+        #{flh,jdbcType=INTEGER},
+      </if>
+      <if test="pzRq != null">
+        #{pzRq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flzy != null">
+        #{flzy,jdbcType=VARCHAR},
+      </if>
+      <if test="kmDm != null">
+        #{kmDm,jdbcType=VARCHAR},
+      </if>
+      <if test="jfje != null">
+        #{jfje,jdbcType=DECIMAL},
+      </if>
+      <if test="dfje != null">
+        #{dfje,jdbcType=DECIMAL},
+      </if>
+      <if test="wbbz != null">
+        #{wbbz,jdbcType=VARCHAR},
+      </if>
+      <if test="wbjfje != null">
+        #{wbjfje,jdbcType=DECIMAL},
+      </if>
+      <if test="wbdfje != null">
+        #{wbdfje,jdbcType=DECIMAL},
+      </if>
+      <if test="shr != null">
+        #{shr,jdbcType=VARCHAR},
+      </if>
+      <if test="zdr != null">
+        #{zdr,jdbcType=VARCHAR},
+      </if>
+      <if test="jzr != null">
+        #{jzr,jdbcType=VARCHAR},
+      </if>
+      <if test="cn != null">
+        #{cn,jdbcType=VARCHAR},
+      </if>
+      <if test="fjs != null">
+        #{fjs,jdbcType=INTEGER},
+      </if>
+      <if test="createman != null">
+        #{createman,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateman != null">
+        #{updateman,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedate != null">
+        #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.starapp.entity.Tvoucher">
+    update t_voucher
+    <set>
+      <if test="ndDm != null">
+        ND_DM = #{ndDm,jdbcType=VARCHAR},
+      </if>
+      <if test="kjqj != null">
+        KJQJ = #{kjqj,jdbcType=INTEGER},
+      </if>
+      <if test="pzz != null">
+        PZZ = #{pzz,jdbcType=VARCHAR},
+      </if>
+      <if test="pzh != null">
+        PZH = #{pzh,jdbcType=VARCHAR},
+      </if>
+      <if test="flh != null">
+        FLH = #{flh,jdbcType=INTEGER},
+      </if>
+      <if test="pzRq != null">
+        PZ_RQ = #{pzRq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flzy != null">
+        FLZY = #{flzy,jdbcType=VARCHAR},
+      </if>
+      <if test="kmDm != null">
+        KM_DM = #{kmDm,jdbcType=VARCHAR},
+      </if>
+      <if test="jfje != null">
+        JFJE = #{jfje,jdbcType=DECIMAL},
+      </if>
+      <if test="dfje != null">
+        DFJE = #{dfje,jdbcType=DECIMAL},
+      </if>
+      <if test="wbbz != null">
+        WBBZ = #{wbbz,jdbcType=VARCHAR},
+      </if>
+      <if test="wbjfje != null">
+        WBJFJE = #{wbjfje,jdbcType=DECIMAL},
+      </if>
+      <if test="wbdfje != null">
+        WBDFJE = #{wbdfje,jdbcType=DECIMAL},
+      </if>
+      <if test="shr != null">
+        SHR = #{shr,jdbcType=VARCHAR},
+      </if>
+      <if test="zdr != null">
+        ZDR = #{zdr,jdbcType=VARCHAR},
+      </if>
+      <if test="jzr != null">
+        JZR = #{jzr,jdbcType=VARCHAR},
+      </if>
+      <if test="cn != null">
+        CN = #{cn,jdbcType=VARCHAR},
+      </if>
+      <if test="fjs != null">
+        FJS = #{fjs,jdbcType=INTEGER},
+      </if>
+      <if test="createman != null">
+        CREATEMAN = #{createman,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateman != null">
+        UPDATEMAN = #{updateman,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedate != null">
+        UPDATEDATE = #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.starapp.entity.Tvoucher">
+    update t_voucher
+    set ND_DM = #{ndDm,jdbcType=VARCHAR},
+      KJQJ = #{kjqj,jdbcType=INTEGER},
+      PZZ = #{pzz,jdbcType=VARCHAR},
+      PZH = #{pzh,jdbcType=VARCHAR},
+      FLH = #{flh,jdbcType=INTEGER},
+      PZ_RQ = #{pzRq,jdbcType=TIMESTAMP},
+      FLZY = #{flzy,jdbcType=VARCHAR},
+      KM_DM = #{kmDm,jdbcType=VARCHAR},
+      JFJE = #{jfje,jdbcType=DECIMAL},
+      DFJE = #{dfje,jdbcType=DECIMAL},
+      WBBZ = #{wbbz,jdbcType=VARCHAR},
+      WBJFJE = #{wbjfje,jdbcType=DECIMAL},
+      WBDFJE = #{wbdfje,jdbcType=DECIMAL},
+      SHR = #{shr,jdbcType=VARCHAR},
+      ZDR = #{zdr,jdbcType=VARCHAR},
+      JZR = #{jzr,jdbcType=VARCHAR},
+      CN = #{cn,jdbcType=VARCHAR},
+      FJS = #{fjs,jdbcType=INTEGER},
+      CREATEMAN = #{createman,jdbcType=VARCHAR},
+      CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      UPDATEMAN = #{updateman,jdbcType=VARCHAR},
+      UPDATEDATE = #{updatedate,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+
+
+<!--构造一个hashMap来存放存储过程的值.【无入参和反参】-->
+  <resultMap type="java.util.HashMap" id="check_TotalResultMap">
+    <result column="JDZE" property="jdze" javaType="java.math.BigDecimal" jdbcType="DECIMAL"/>
+    <result column="DFZE" property="dfze" javaType="java.math.BigDecimal" jdbcType="DECIMAL"/>
+    <result column="back_Msg" property="backMsg" javaType="java.lang.String" jdbcType="VARCHAR"/>
+  </resultMap>
+  <!--调用存储过程：测试1，检查借贷总额是否相等-->
+  <select id="check_Total_loan" statementType="CALLABLE" resultMap="check_TotalResultMap">
+      call check_Total_loan();
+  </select>
+</mapper>
