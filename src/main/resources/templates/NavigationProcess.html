@@ -28,14 +28,16 @@
 
 
             <div class="row">
+                <!--@@@&&&***长方体块级元素@@@&&&***-->
                 <div class="col-lg-7">
                     <!--&&&&@@@@@@源数据导入，科目校验@@@@@&&&&&&-->
                     <div class="row">
+                        <!--数据导入-->
                         <div class="col-lg-5">
                             <div class="ibox float-e-margins">
                                 <div class="ibox-title">
-                                    <a><span class="label label-success pull-right">Step1</span></a>
-                                    <h5>ImportData</h5>
+                                    <!--<a><span class="label label-success pull-right">Step1</span></a>-->
+                                    <h5><span class="label label-primary pull-left">STEP1</span></h5>
                                 </div>
                                 <div class="ibox-content">
                                     <a><h1 class="no-margins">数据导入</h1></a>
@@ -43,15 +45,28 @@
                             </div>
 
                         </div>
+                        <!--科目校验-->
                         <div class="col-lg-5">
                             <div class="ibox float-e-margins">
                                 <div class="ibox-title">
-                                    <a><span class="label label-danger pull-right">导出</span></a>
-                                    <h5><span class="label label-primary pull-right">STEP2</span></h5>
+                                    <a href="excelOut?key=subject"><span class="label label-danger pull-right">导出</span></a>
+                                    <h5><span class="label label-primary pull-left">STEP2</span></h5>
                                 </div>
                                 <div class="ibox-content">
                                     <a> <h1 class="no-margins">科目校验</h1></a>
 
+                                </div>
+                            </div>
+                        </div>
+                        <!--更新父级科目-->
+                        <div class="col-lg-5">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <a><span class="label label-danger pull-right">更新</span></a>
+                                    <h5><span class="label label-primary pull-left">Step6</span></h5>
+                                </div>
+                                <div class="ibox-content">
+                                    <h1 class="no-margins">更新父级科目</h1>
                                 </div>
                             </div>
                         </div>
@@ -62,8 +77,7 @@
                             <div class="ibox float-e-margins">
                                 <div class="ibox-title">
                                     <a><span class="label label-danger pull-right">导出</span></a>
-                                    <span class="label label-primary pull-right">Step3</span>
-                                    <h5>DR$CR</h5>
+                                    <h5><span class="label label-primary pull-left">Step3</span></h5>
                                 </div>
                                 <div class="ibox-content">
                                    <a><h1 class="no-margins">借贷明细</h1></a>
@@ -74,8 +88,7 @@
                             <div class="ibox float-e-margins">
                                 <div class="ibox-title">
                                     <a><span class="label label-danger pull-right">导出</span></a>
-                                    <span class="label label-primary pull-right">Step4</span>
-                                    <h5>BS/PL</h5>
+                                    <h5><span class="label label-primary pull-left">Step4</span></h5>
                                 </div>
                                 <div class="ibox-content">
                                     <h1 class="no-margins"><a href="check_Total_loan">借贷总平衡</a></h1>
@@ -88,9 +101,9 @@
                         <div class="col-lg-5">
                             <div class="ibox float-e-margins">
                                 <div class="ibox-title">
-                                    <a><span class="label label-danger pull-right">导出</span></a>
-                                    <span class="label label-primary pull-right">Step5</span>
-                                    <h5>StandardSubject</h5>
+                                    <a href="excelOut?key=standard_subject"><span class="label label-danger pull-right">导出</span></a>
+                                    <a href="#"><span class="label label-danger pull-right">在线查看</span></a>
+                                    <h5><span class="label label-primary pull-left">Step5</span></h5>
                                 </div>
                                 <div class="ibox-content">
                                     <h1 class="no-margins"><a href="data_upload">企业科目与标准科目映射</a></h1>
@@ -100,9 +113,9 @@
                         <div class="col-lg-5">
                             <div class="ibox float-e-margins">
                                 <div class="ibox-title">
-                                    <a><span class="label label-danger pull-right">导出</span></a>
-                                    <span class="label label-primary pull-right">Step6</span>
-                                    <h5>StandardSubject-Finace</h5>
+                                    <a href="excelOut?key=Standard_subject_finance"><span class="label label-danger pull-right">导出</span></a>
+                                    <a href="#"><span class="label label-danger pull-right">在线查看</span></a>
+                                    <h5><span class="label label-primary pull-left">Step6</span></h5>
                                 </div>
                                 <div class="ibox-content">
                                     <h1 class="no-margins"><a href="data_upload">标准科目与财务报表映射</a></h1>
@@ -112,32 +125,26 @@
                     </div>
                     <!--&&&&@@@@@@BS|PL@@@@@&&&&&&-->
                     <div class="row">
+                        <!--资产负债-->
                         <div class="col-lg-5">
                             <div class="ibox float-e-margins">
                                 <div class="ibox-title">
-                                    <a><span class="label label-danger pull-right">BS导出</span></a>
-                                    <a><span class="label label-danger pull-right">PL导出</span></a>
-                                    <h5>BS/PL</h5>
+                                    <a href="excelOut?key=BS"><span class="label label-danger pull-right">BS导出</span></a>
+                                    <a href="excelOut?key=PL"><span class="label label-danger pull-right">PL导出</span></a>
+                                    <h5><span class="label label-primary pull-left">Step6</span></h5>
                                 </div>
                                 <div class="ibox-content">
                                    <a> <h1 class="no-margins">资产负债表/利润表</h1></a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-5">
-                            <div class="ibox float-e-margins">
-                                <div class="ibox-title">
-                                    <a><span class="label label-danger pull-right">导出</span></a>
-                                    <h5>BS/PL</h5>
-                                </div>
-                                <div class="ibox-content">
-                                    <h1 class="no-margins">资产负债表/利润表</h1>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
 
                 </div>
+
+
+                <!--@@@&&&***结果信息反馈@@@&&&***-->
                 <div class="col-lg-5">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
@@ -172,7 +179,7 @@
                                 <div class="feed-element">
                                     <div>
                                         <small class="pull-right">5m ago</small>
-                                        <strong CLASS="label label-success">STEP3:借贷明细</strong>
+                                        <strong CLASS="label label-success">STEP3:更新父级科目</strong>
                                         <div>Contrary to popular belief, Lorem Ipsum</div>
                                         <small class="text-muted">Today 1:00 pm - 08.06.2014</small>
                                     </div>
@@ -180,7 +187,15 @@
                                 <div class="feed-element">
                                     <div>
                                         <small class="pull-right">5m ago</small>
-                                        <strong CLASS="label label-success">STEP4:借贷总额平衡</strong>
+                                        <strong CLASS="label label-success">STEP4:借贷明细</strong>
+                                        <div>Contrary to popular belief, Lorem Ipsum</div>
+                                        <small class="text-muted">Today 1:00 pm - 08.06.2014</small>
+                                    </div>
+                                </div>
+                                <div class="feed-element">
+                                    <div>
+                                        <small class="pull-right">5m ago</small>
+                                        <strong CLASS="label label-success">STEP5:借贷总额平衡</strong>
                                         <div class="hr-line-dashed"></div>
                                         <p th:text="${check_Total_loan}" style="color: #1ab394;"></p>
                                         <small class="text-muted">Yesterday 8:48 pm - 10.06.2014</small>
@@ -189,7 +204,7 @@
                                 <div class="feed-element">
                                     <div>
                                         <small class="pull-right">5m ago</small>
-                                        <strong  CLASS="label label-success">STEP5:财务报表生成（BS/PL）</strong>
+                                        <strong  CLASS="label label-success">STEP6:财务报表生成（BS/PL）</strong>
                                         <div>All the Lorem Ipsum generators on the Internet tend to repeat </div>
                                         <small class="text-muted">Yesterday 8:48 pm - 10.06.2014</small>
                                     </div>
@@ -270,6 +285,10 @@
 <script th:src="@{/js/demo/sparkline-demo.js}"></script>
 
 <script>
+
+
+
+
 </script>
 </body>
 </html>

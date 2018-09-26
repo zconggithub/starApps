@@ -197,5 +197,29 @@
     where ID = #{id,jdbcType=BIGINT}
   </update>
 
+  <!--科目表-->
+<select id="getAllTsubject" resultType="java.util.HashMap">
+  select ND_DM,KM_DM,KMMC,KMLX,KMFX,FJKM_DM from t_subject where 1=1;
+</select>
+
+  <!--标准科目与企业科目-->
+  <select id="getAllStandard_subject" resultType="java.util.HashMap">
+  select STANDARD_DM,STANDARD_DM_NAME,COMPANY_DM,COMPANY_DM_NAME from standard_subject where 1=1;
+</select>
+
+  <!--标准科目与财务报表standard_subject_finance-->
+  <select id="getAllStandard_subject_finance" resultType="java.util.HashMap">
+  select STANDARD_SUBJECTS_CODE,STANDARD_SUBJECTS_NAME,FINANCE_NO,FINANCE_TYPE,FINANCE_NO_NAME from standard_subject where 1=1;
+</select>
+
+  <!--资产负债表-->
+  <select id="getAllBalance_sheet" resultType="java.util.HashMap">
+  select REPORT_TYPE,LINE_NO,LINE_NO_NAME,QCYE,QMYE from balance_sheet where 1=1;
+</select>
+
+  <!--利润表-->
+  <select id="getAllProfit_loss" resultType="java.util.HashMap">
+  select REPORT_TYPE,LINE_NO,LINE_NO_NAME,FS from profit_loss where 1=1;
+</select>
 
 </mapper>

@@ -95,8 +95,8 @@ public class ImportDataController {
                }
                 break;
             case "StandardSubjectFinance":
-                importColumn_No=6;//导入的字段为6个
-                if(rowList.get(0).size()==4){
+                importColumn_No=5;//导入的字段为5个
+                if(rowList.get(0).size()==5){
                 backMessage= standardSubjectFinanceService.batchInsertStandardSubjectFinance(rowList);
                 model.addAttribute("importSuccessFlag",backMessage.getObj());
                 log.info("[{/importExcel}标准科目与财务导入： ]"+backMessage.getObj());
