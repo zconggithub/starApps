@@ -10,7 +10,7 @@ import com.mysql.jdbc.PreparedStatement;
 /**
  * @date:2018/9/1018:50
  * @author:Allen
- * @description:
+ * @description:【JDBC 测试数据导入】
  */
 public class JDBC_Test {
 
@@ -32,7 +32,12 @@ public class JDBC_Test {
             }
 
         }
-        public static void insert(Connection conn) {
+
+    /**
+     * JDBC测试之插入数据
+     * @param conn
+     */
+    public static void insert(Connection conn) {
             // 开始时间
             Long begin = new Date().getTime();
             // sql前缀
@@ -76,6 +81,7 @@ public class JDBC_Test {
             System.out.println("10万条数据插入花费时间 : " + (end - begin) / 1000 + " s");
             System.out.println("插入完成");
         }
+
     }
 
 

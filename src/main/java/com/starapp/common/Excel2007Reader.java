@@ -23,6 +23,9 @@ import java.util.Iterator;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 大数据量导入数据库【至少50万-测试100万数据导入】
+ */
 public class Excel2007Reader {
 
     private int headCount = 1;//表头数据
@@ -61,7 +64,7 @@ public class Excel2007Reader {
             sheet.close();
         }
         long end_Time=System.currentTimeMillis();
-        System.out.println("【Excel解析时间】"+(end_Time-star_Time)/1000);
+        System.out.println("【Excel解析时间】"+(end_Time-star_Time)/1000+"S");
         return  rowLists;
     }
 
@@ -251,7 +254,7 @@ public class Excel2007Reader {
         File file=new File(filePath);
         InputStream inputStream=new FileInputStream(file);
         Excel2007Reader excel2007Reader = new Excel2007Reader();
-     excel2007Reader.processSAXReadSheet(inputStream);//【记住Excel的表头处理】
+     excel2007Reader.processSAXReadSheet(inputStream);//【备注：记住Excel的表头处理，需要的话直接headCount加1即可，或者置为0】
         long end_Time=System.currentTimeMillis();
         System.out.println("【封装时间】"+(end_Time-star_Time)/1000);
 

@@ -29,10 +29,23 @@
 
 
         <!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名-->
-  <!--  <table tableName="t_voucher" domainObjectName="Tvoucher"
+        <!--<table tableName="kj_pzjk_valid_pzh_opp_detail" domainObjectName="kjPzjkValidPzhOppDetail"
+                       enableCountByExample="false" enableUpdateByExample="false"
+                       enableDeleteByExample="false" enableSelectByExample="false"
+                       selectByExampleQueryId="false"></table>-->
+        <!--   <table tableName="sys_permissions" domainObjectName="SysPermissions"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false"></table>
+        <table tableName="sys_users_roles" domainObjectName="SysUsersRoles"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false"></table>
+        <table tableName="sys_roles_permissions" domainObjectName="SysRolesPermissions"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"></table>-->
+
      <!--多张表的时候重复上面table部分，改动属性tableName[数据库表名]和domainObjectName[实体名称]即可-->
     </context>
 </generatorConfiguration>

@@ -222,4 +222,16 @@
   select REPORT_TYPE,LINE_NO,LINE_NO_NAME,FS from profit_loss where 1=1;
 </select>
 
+
+  <!--【待处理数据】-->
+  <!--返回数据量-->
+  <select id="getData_NO" resultType="Integer">
+    SELECT COUNT(*) FROM kj_pzjk_valid_pzh_opp_detail ORDER by pzh;
+  </select>
+
+  <!--分批返回数据-->
+  <select id="getAllSearchData" resultType="java.util.HashMap">
+    SELECT * FROM kj_pzjk_valid_pzh_opp_detail ORDER by pzh;
+  </select>
+
 </mapper>

@@ -34,7 +34,7 @@ public  class OutExcelController {
 
     /**
      *
-     * @param entity_name 导出实体数据的名称
+     * @param entity_name 导出实体数据的名称：少量数据导出
      * @return
      */
     @RequestMapping("/excelOut")

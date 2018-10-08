@@ -26,7 +26,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @date:2018/9/1013:00
  * @author:Allen
- * @description:Excel导出工具
+ * @description:Excel导出工具【少量数据导出】
  */
 public  class ExcelOutPutUtil {
 
