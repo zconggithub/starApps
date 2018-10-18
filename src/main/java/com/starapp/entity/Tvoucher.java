@@ -3,6 +3,9 @@ package com.starapp.entity;
 import java.math.BigDecimal;
 import java.util.Date;
 
+/**
+ * 凭证表
+ */
 public class Tvoucher {
     private Long id;
 
@@ -232,5 +235,63 @@ public class Tvoucher {
 
     public void setUpdatedate(Date updatedate) {
         this.updatedate = updatedate;
+    }
+
+    public Tvoucher() {
+    }
+
+    public Tvoucher(Long id, String ndDm, Integer kjqj, String pzz, String pzh, Integer flh, Date pzRq, String flzy, String kmDm, BigDecimal jfje, BigDecimal dfje, String wbbz, BigDecimal wbjfje, BigDecimal wbdfje, String shr, String zdr, String jzr, String cn, Integer fjs, String createman, Date createdate, String updateman, Date updatedate) {
+        this.id = id;
+        this.ndDm = ndDm;
+        this.kjqj = kjqj;
+        this.pzz = pzz;
+        this.pzh = pzh;
+        this.flh = flh;
+        this.pzRq = pzRq;
+        this.flzy = flzy;
+        this.kmDm = kmDm;
+        this.jfje = jfje;
+        this.dfje = dfje;
+        this.wbbz = wbbz;
+        this.wbjfje = wbjfje;
+        this.wbdfje = wbdfje;
+        this.shr = shr;
+        this.zdr = zdr;
+        this.jzr = jzr;
+        this.cn = cn;
+        this.fjs = fjs;
+        this.createman = createman;
+        this.createdate = createdate;
+        this.updateman = updateman;
+        this.updatedate = updatedate;
+    }
+
+    @Override
+    public String toString() {
+        return "Tvoucher{" +
+                "id=" + id +
+                ", ndDm='" + ndDm + '\'' +
+                ", kjqj=" + kjqj +
+                ", pzz='" + pzz + '\'' +
+                ", pzh='" + pzh + '\'' +
+                ", flh=" + flh +
+                ", pzRq=" + pzRq +
+                ", flzy='" + flzy + '\'' +
+                ", kmDm='" + kmDm + '\'' +
+                ", jfje=" + jfje +
+                ", dfje=" + dfje +
+                ", wbbz='" + wbbz + '\'' +
+                ", wbjfje=" + wbjfje +
+                ", wbdfje=" + wbdfje +
+                ", shr='" + shr + '\'' +
+                ", zdr='" + zdr + '\'' +
+                ", jzr='" + jzr + '\'' +
+                ", cn='" + cn + '\'' +
+                ", fjs=" + fjs +
+                ", createman='" + createman + '\'' +
+                ", createdate=" + createdate +
+                ", updateman='" + updateman + '\'' +
+                ", updatedate=" + updatedate +
+                '}';
     }
 }

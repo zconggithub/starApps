@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.starapp.dao.kjPzjkValidPzhOppDetailMapper">
+  <resultMap id="BaseResultMap" type="com.starapp.entity.kjPzjkValidPzhOppDetail">
+    <id column="KJ_PZJK_VALID_PZH_OPP_DETAIL_ID" jdbcType="BIGINT" property="kjPzjkValidPzhOppDetailId" />
+    <result column="kj_pzjk_valid_pzh_detail_id" jdbcType="BIGINT" property="kjPzjkValidPzhDetailId" />
+    <result column="OPP_SUBJECT_DETAIL_ID" jdbcType="BIGINT" property="oppSubjectDetailId" />
+    <result column="ND_DM" jdbcType="VARCHAR" property="ndDm" />
+    <result column="KJQJ" jdbcType="DECIMAL" property="kjqj" />
+    <result column="PZZ" jdbcType="VARCHAR" property="pzz" />
+    <result column="pzh" jdbcType="VARCHAR" property="pzh" />
+    <result column="FLH" jdbcType="DECIMAL" property="flh" />
+    <result column="PZ_RQ" jdbcType="VARCHAR" property="pzRq" />
+    <result column="combine_subject_code" jdbcType="VARCHAR" property="combineSubjectCode" />
+    <result column="km_dm" jdbcType="VARCHAR" property="kmDm" />
+    <result column="client_subject_name" jdbcType="VARCHAR" property="clientSubjectName" />
+    <result column="client_subject_name2" jdbcType="VARCHAR" property="clientSubjectName2" />
+    <result column="FLZY" jdbcType="VARCHAR" property="flzy" />
+    <result column="JFJE" jdbcType="DECIMAL" property="jfje" />
+    <result column="DFJE" jdbcType="DECIMAL" property="dfje" />
+    <result column="model_subject_code" jdbcType="VARCHAR" property="modelSubjectCode" />
+    <result column="model_subject_name" jdbcType="VARCHAR" property="modelSubjectName" />
+    <result column="MODEL_CODE" jdbcType="VARCHAR" property="modelCode" />
+    <result column="MODEL_NAME" jdbcType="VARCHAR" property="modelName" />
+    <result column="DESCRIPTION_CONDITION" jdbcType="VARCHAR" property="descriptionCondition" />
+    <result column="condition_type" jdbcType="INTEGER" property="conditionType" />
+    <result column="tips" jdbcType="VARCHAR" property="tips" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    KJ_PZJK_VALID_PZH_OPP_DETAIL_ID, kj_pzjk_valid_pzh_detail_id, OPP_SUBJECT_DETAIL_ID, 
+    ND_DM, KJQJ, PZZ, pzh, FLH, PZ_RQ, combine_subject_code, km_dm, client_subject_name, 
+    client_subject_name2, FLZY, JFJE, DFJE, model_subject_code, model_subject_name, MODEL_CODE, 
+    MODEL_NAME, DESCRIPTION_CONDITION, condition_type, tips
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from kj_pzjk_valid_pzh_opp_detail
+    where KJ_PZJK_VALID_PZH_OPP_DETAIL_ID = #{kjPzjkValidPzhOppDetailId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from kj_pzjk_valid_pzh_opp_detail
+    where KJ_PZJK_VALID_PZH_OPP_DETAIL_ID = #{kjPzjkValidPzhOppDetailId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.starapp.entity.kjPzjkValidPzhOppDetail">
+    insert into kj_pzjk_valid_pzh_opp_detail (KJ_PZJK_VALID_PZH_OPP_DETAIL_ID, kj_pzjk_valid_pzh_detail_id, 
+      OPP_SUBJECT_DETAIL_ID, ND_DM, KJQJ, 
+      PZZ, pzh, FLH, PZ_RQ, 
+      combine_subject_code, km_dm, client_subject_name, 
+      client_subject_name2, FLZY, JFJE, 
+      DFJE, model_subject_code, model_subject_name, 
+      MODEL_CODE, MODEL_NAME, DESCRIPTION_CONDITION, 
+      condition_type, tips)
+    values (#{kjPzjkValidPzhOppDetailId,jdbcType=BIGINT}, #{kjPzjkValidPzhDetailId,jdbcType=BIGINT}, 
+      #{oppSubjectDetailId,jdbcType=BIGINT}, #{ndDm,jdbcType=VARCHAR}, #{kjqj,jdbcType=DECIMAL}, 
+      #{pzz,jdbcType=VARCHAR}, #{pzh,jdbcType=VARCHAR}, #{flh,jdbcType=DECIMAL}, #{pzRq,jdbcType=VARCHAR}, 
+      #{combineSubjectCode,jdbcType=VARCHAR}, #{kmDm,jdbcType=VARCHAR}, #{clientSubjectName,jdbcType=VARCHAR}, 
+      #{clientSubjectName2,jdbcType=VARCHAR}, #{flzy,jdbcType=VARCHAR}, #{jfje,jdbcType=DECIMAL}, 
+      #{dfje,jdbcType=DECIMAL}, #{modelSubjectCode,jdbcType=VARCHAR}, #{modelSubjectName,jdbcType=VARCHAR}, 
+      #{modelCode,jdbcType=VARCHAR}, #{modelName,jdbcType=VARCHAR}, #{descriptionCondition,jdbcType=VARCHAR}, 
+      #{conditionType,jdbcType=INTEGER}, #{tips,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.starapp.entity.kjPzjkValidPzhOppDetail">
+    insert into kj_pzjk_valid_pzh_opp_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="kjPzjkValidPzhOppDetailId != null">
+        KJ_PZJK_VALID_PZH_OPP_DETAIL_ID,
+      </if>
+      <if test="kjPzjkValidPzhDetailId != null">
+        kj_pzjk_valid_pzh_detail_id,
+      </if>
+      <if test="oppSubjectDetailId != null">
+        OPP_SUBJECT_DETAIL_ID,
+      </if>
+      <if test="ndDm != null">
+        ND_DM,
+      </if>
+      <if test="kjqj != null">
+        KJQJ,
+      </if>
+      <if test="pzz != null">
+        PZZ,
+      </if>
+      <if test="pzh != null">
+        pzh,
+      </if>
+      <if test="flh != null">
+        FLH,
+      </if>
+      <if test="pzRq != null">
+        PZ_RQ,
+      </if>
+      <if test="combineSubjectCode != null">
+        combine_subject_code,
+      </if>
+      <if test="kmDm != null">
+        km_dm,
+      </if>
+      <if test="clientSubjectName != null">
+        client_subject_name,
+      </if>
+      <if test="clientSubjectName2 != null">
+        client_subject_name2,
+      </if>
+      <if test="flzy != null">
+        FLZY,
+      </if>
+      <if test="jfje != null">
+        JFJE,
+      </if>
+      <if test="dfje != null">
+        DFJE,
+      </if>
+      <if test="modelSubjectCode != null">
+        model_subject_code,
+      </if>
+      <if test="modelSubjectName != null">
+        model_subject_name,
+      </if>
+      <if test="modelCode != null">
+        MODEL_CODE,
+      </if>
+      <if test="modelName != null">
+        MODEL_NAME,
+      </if>
+      <if test="descriptionCondition != null">
+        DESCRIPTION_CONDITION,
+      </if>
+      <if test="conditionType != null">
+        condition_type,
+      </if>
+      <if test="tips != null">
+        tips,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="kjPzjkValidPzhOppDetailId != null">
+        #{kjPzjkValidPzhOppDetailId,jdbcType=BIGINT},
+      </if>
+      <if test="kjPzjkValidPzhDetailId != null">
+        #{kjPzjkValidPzhDetailId,jdbcType=BIGINT},
+      </if>
+      <if test="oppSubjectDetailId != null">
+        #{oppSubjectDetailId,jdbcType=BIGINT},
+      </if>
+      <if test="ndDm != null">
+        #{ndDm,jdbcType=VARCHAR},
+      </if>
+      <if test="kjqj != null">
+        #{kjqj,jdbcType=DECIMAL},
+      </if>
+      <if test="pzz != null">
+        #{pzz,jdbcType=VARCHAR},
+      </if>
+      <if test="pzh != null">
+        #{pzh,jdbcType=VARCHAR},
+      </if>
+      <if test="flh != null">
+        #{flh,jdbcType=DECIMAL},
+      </if>
+      <if test="pzRq != null">
+        #{pzRq,jdbcType=VARCHAR},
+      </if>
+      <if test="combineSubjectCode != null">
+        #{combineSubjectCode,jdbcType=VARCHAR},
+      </if>
+      <if test="kmDm != null">
+        #{kmDm,jdbcType=VARCHAR},
+      </if>
+      <if test="clientSubjectName != null">
+        #{clientSubjectName,jdbcType=VARCHAR},
+      </if>
+      <if test="clientSubjectName2 != null">
+        #{clientSubjectName2,jdbcType=VARCHAR},
+      </if>
+      <if test="flzy != null">
+        #{flzy,jdbcType=VARCHAR},
+      </if>
+      <if test="jfje != null">
+        #{jfje,jdbcType=DECIMAL},
+      </if>
+      <if test="dfje != null">
+        #{dfje,jdbcType=DECIMAL},
+      </if>
+      <if test="modelSubjectCode != null">
+        #{modelSubjectCode,jdbcType=VARCHAR},
+      </if>
+      <if test="modelSubjectName != null">
+        #{modelSubjectName,jdbcType=VARCHAR},
+      </if>
+      <if test="modelCode != null">
+        #{modelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="modelName != null">
+        #{modelName,jdbcType=VARCHAR},
+      </if>
+      <if test="descriptionCondition != null">
+        #{descriptionCondition,jdbcType=VARCHAR},
+      </if>
+      <if test="conditionType != null">
+        #{conditionType,jdbcType=INTEGER},
+      </if>
+      <if test="tips != null">
+        #{tips,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.starapp.entity.kjPzjkValidPzhOppDetail">
+    update kj_pzjk_valid_pzh_opp_detail
+    <set>
+      <if test="kjPzjkValidPzhDetailId != null">
+        kj_pzjk_valid_pzh_detail_id = #{kjPzjkValidPzhDetailId,jdbcType=BIGINT},
+      </if>
+      <if test="oppSubjectDetailId != null">
+        OPP_SUBJECT_DETAIL_ID = #{oppSubjectDetailId,jdbcType=BIGINT},
+      </if>
+      <if test="ndDm != null">
+        ND_DM = #{ndDm,jdbcType=VARCHAR},
+      </if>
+      <if test="kjqj != null">
+        KJQJ = #{kjqj,jdbcType=DECIMAL},
+      </if>
+      <if test="pzz != null">
+        PZZ = #{pzz,jdbcType=VARCHAR},
+      </if>
+      <if test="pzh != null">
+        pzh = #{pzh,jdbcType=VARCHAR},
+      </if>
+      <if test="flh != null">
+        FLH = #{flh,jdbcType=DECIMAL},
+      </if>
+      <if test="pzRq != null">
+        PZ_RQ = #{pzRq,jdbcType=VARCHAR},
+      </if>
+      <if test="combineSubjectCode != null">
+        combine_subject_code = #{combineSubjectCode,jdbcType=VARCHAR},
+      </if>
+      <if test="kmDm != null">
+        km_dm = #{kmDm,jdbcType=VARCHAR},
+      </if>
+      <if test="clientSubjectName != null">
+        client_subject_name = #{clientSubjectName,jdbcType=VARCHAR},
+      </if>
+      <if test="clientSubjectName2 != null">
+        client_subject_name2 = #{clientSubjectName2,jdbcType=VARCHAR},
+      </if>
+      <if test="flzy != null">
+        FLZY = #{flzy,jdbcType=VARCHAR},
+      </if>
+      <if test="jfje != null">
+        JFJE = #{jfje,jdbcType=DECIMAL},
+      </if>
+      <if test="dfje != null">
+        DFJE = #{dfje,jdbcType=DECIMAL},
+      </if>
+      <if test="modelSubjectCode != null">
+        model_subject_code = #{modelSubjectCode,jdbcType=VARCHAR},
+      </if>
+      <if test="modelSubjectName != null">
+        model_subject_name = #{modelSubjectName,jdbcType=VARCHAR},
+      </if>
+      <if test="modelCode != null">
+        MODEL_CODE = #{modelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="modelName != null">
+        MODEL_NAME = #{modelName,jdbcType=VARCHAR},
+      </if>
+      <if test="descriptionCondition != null">
+        DESCRIPTION_CONDITION = #{descriptionCondition,jdbcType=VARCHAR},
+      </if>
+      <if test="conditionType != null">
+        condition_type = #{conditionType,jdbcType=INTEGER},
+      </if>
+      <if test="tips != null">
+        tips = #{tips,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where KJ_PZJK_VALID_PZH_OPP_DETAIL_ID = #{kjPzjkValidPzhOppDetailId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.starapp.entity.kjPzjkValidPzhOppDetail">
+    update kj_pzjk_valid_pzh_opp_detail
+    set kj_pzjk_valid_pzh_detail_id = #{kjPzjkValidPzhDetailId,jdbcType=BIGINT},
+      OPP_SUBJECT_DETAIL_ID = #{oppSubjectDetailId,jdbcType=BIGINT},
+      ND_DM = #{ndDm,jdbcType=VARCHAR},
+      KJQJ = #{kjqj,jdbcType=DECIMAL},
+      PZZ = #{pzz,jdbcType=VARCHAR},
+      pzh = #{pzh,jdbcType=VARCHAR},
+      FLH = #{flh,jdbcType=DECIMAL},
+      PZ_RQ = #{pzRq,jdbcType=VARCHAR},
+      combine_subject_code = #{combineSubjectCode,jdbcType=VARCHAR},
+      km_dm = #{kmDm,jdbcType=VARCHAR},
+      client_subject_name = #{clientSubjectName,jdbcType=VARCHAR},
+      client_subject_name2 = #{clientSubjectName2,jdbcType=VARCHAR},
+      FLZY = #{flzy,jdbcType=VARCHAR},
+      JFJE = #{jfje,jdbcType=DECIMAL},
+      DFJE = #{dfje,jdbcType=DECIMAL},
+      model_subject_code = #{modelSubjectCode,jdbcType=VARCHAR},
+      model_subject_name = #{modelSubjectName,jdbcType=VARCHAR},
+      MODEL_CODE = #{modelCode,jdbcType=VARCHAR},
+      MODEL_NAME = #{modelName,jdbcType=VARCHAR},
+      DESCRIPTION_CONDITION = #{descriptionCondition,jdbcType=VARCHAR},
+      condition_type = #{conditionType,jdbcType=INTEGER},
+      tips = #{tips,jdbcType=VARCHAR}
+    where KJ_PZJK_VALID_PZH_OPP_DETAIL_ID = #{kjPzjkValidPzhOppDetailId,jdbcType=BIGINT}
+  </update>
+</mapper>

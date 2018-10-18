@@ -25,12 +25,12 @@ public class TfileServiceImpl implements TfileService {
 
         BackMessage backMessage=null;
         int successFlag=tfileMapper.insert(tfile);
+
         if(successFlag>0){
             backMessage= new BackMessage(EnumCodeMsg.Code200.getEnumName(),EnumCodeMsg.Code200.getEnumCode(),null,"提交OK");
         }else{
             backMessage= new BackMessage(EnumCodeMsg.Code001.getEnumName(),EnumCodeMsg.Code001.getEnumCode(),null,"提交失败");
         }
-
         return backMessage;
     }
 

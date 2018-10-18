@@ -108,7 +108,18 @@
             <artifactId>jxl</artifactId>
             <version>2.6.12</version>
         </dependency>
-
+        <!-- https://mvnrepository.com/artifact/org.apache.pdfbox/pdfbox解析pdf -->
+        <dependency>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>pdfbox</artifactId>
+            <version>2.0.9</version>
+        </dependency>
+        <!--2018-04-17 14:31:37Super CSV是一个用于处理CSV文件的Java开源项目-->
+        <dependency>
+            <groupId>net.sf.supercsv</groupId>
+            <artifactId>super-csv</artifactId>
+            <version>2.4.0</version>
+        </dependency>
 
     </dependencies>
 

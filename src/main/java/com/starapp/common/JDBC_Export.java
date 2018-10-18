@@ -33,8 +33,10 @@ public class JDBC_Export {
         conn = DriverManager.getConnection(url, user, password);//获取连接
         if (conn != null) {
             System.out.println("获取连接成功");
-           // getData_No(conn,opp_detail_SQL,opp_detail_Column,opp_detail_Excel);//【备注：第一个参数conn连接不用动，第二个参数是：SQL语句{}，第三个参数是：表头信息{}。第四个参数是对应的表名。后面三个参数跟随业务变动】
-            getData_No(conn,header_SQL,header_Column,head_Excel);
+          // getData_No(conn,opp_detail_SQL,opp_detail_Column,opp_detail_Excel);//【备注：第一个参数conn连接不用动，第二个参数是：SQL语句{}，第三个参数是：表头信息{}。第四个参数是对应的表名。后面三个参数跟随业务变动】
+           // getData_No(conn,header_SQL,header_Column,head_Excel);
+            //getData_No(conn,Tgl_check_result_Sql2016,Tgl_check_result_ColumnHeader,Tgl_check_result_2016Excel);
+            getData_No(conn,Tgl_check_result_Sql2017,Tgl_check_result_ColumnHeader,Tgl_check_result_2017Excel);
             System.out.println("该数据量" + String.valueOf(rowCount));
         } else {
             System.out.println("获取连接失败");
@@ -128,9 +130,9 @@ public class JDBC_Export {
     }
 
     //表头信息kj_pzjk_valid_pzh_opp_detail
-    public static final String opp_detail_Column[]={"KJ_PZJK_VALID_PZH_OPP_DETAIL_ID","kj_pzjk_valid_pzh_detail_id","OPP_SUBJECT_DETAIL_ID",
-            "ND_DM","KJQJ","PZZ","pzh","FLH","PZ_RQ","combine_subject_code","km_dm","client_subject_name","client_subject_name2","FLZY","JFJE","DFJE","model_subject_code"
-            ,"model_subject_name","MODEL_CODE","MODEL_NAME","DESCRIPTION_CONDITION","condition_type","tips"};
+    public static final String opp_detail_Column[]={"模型代码","模型名称","年度",
+            "期间","日期","凭证字","凭证号","分录号","科目代码","科目名称","标准科目代码","标准科目名称","摘要","借方金额","贷方金额"
+            ,"关键字","条件类型","风险提示"};
 
     //表头信息kj_pzjk_valid_pzh_opp_header
     public static final String  header_Column[]={"年度","期间","日期","凭证字","凭证号","分录号","科目代码",
@@ -138,12 +140,21 @@ public class JDBC_Export {
     // 【SQL语句】
     public static String header_SQL="SELECT ND_DM 年度, KJQJ 期间, PZ_RQ 日期, PZZ 凭证字, pzh 凭证号, FLH 分录号, km_dm 科目代码, client_subject_name 科目名称," +
             " model_subject_code 标准科目代码, model_subject_name 标准科目名称, FLZY 摘要, JFJE 借方金额, DFJE 贷方金额, match_count 命中模型数 FROM kj_pzjk_valid_pzh_opp_header order by nd_dm, kjqj, PZ_RQ, pzh, FLH";//表kj_pzjk_valid_pzh_opp_header
-    public static String opp_detail_SQL="SELECT * FROM kj_pzjk_valid_pzh_opp_detail ORDER by pzh";//表SQL
+
+    public static String opp_detail_SQL="SELECT MODEL_CODE 模型代码, MODEL_NAME 模型名称, ND_DM 年度, KJQJ 期间, PZ_RQ 日期, PZZ 凭证字, pzh 凭证号," +
+            " FLH 分录号, km_dm 科目代码, client_subject_name 科目名称, model_subject_code 标准科目代码, model_subject_name 标准科目名称," +
+            " FLZY 摘要, JFJE 借方金额, DFJE 贷方金额, DESCRIPTION_CONDITION 关键字, condition_type 条件类型, tips 风险提示 FROM kj_pzjk_valid_pzh_opp_detail order by MODEL_CODE, MODEL_NAME, nd_dm, kjqj, PZ_RQ, pzh, FLH";//表SQL
     public static  int rowCount= 0;//数据库总数量
 
     public static String opp_detail_Excel = "C:/Users/pw699qr/Desktop/opp_detail.xlsx";		//opp_detail_Excel
 
     public static String head_Excel = "C:/Users/pw699qr/Desktop/head_Excel.xlsx";		//opp_detail_Excel
+
+    public static String Tgl_check_result_2016Excel = "C:/Users/pw699qr/Desktop/Tgl_check_result2016.xlsx";
+    public static String Tgl_check_result_2017Excel = "C:/Users/pw699qr/Desktop/Tgl_check_result2017.xlsx";
+    public static String Tgl_check_result_ColumnHeader[]={"ND_DM","KJQJ","PZJ","PZH","FLH","PZ_RQ","KM_DM","JFJE","DFJE","LOC_CHAR","CLIENT_CODE","SAP_PZBH","SAP_ZH"};
+    public static String Tgl_check_result_Sql2016="select * from t_gl_check_result where client_code = 7106 and ND_DM = 2016";
+    public static String Tgl_check_result_Sql2017="select * from t_gl_check_result where client_code = 7106 and ND_DM = 2017";
 
 
 }
