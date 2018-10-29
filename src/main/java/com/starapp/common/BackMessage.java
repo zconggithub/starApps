@@ -52,4 +52,14 @@ public class BackMessage {
     public void setObj(Object obj) {
         this.obj = obj;
     }
+
+    @Override
+    public String toString() {
+        return "BackMessage{" +
+                "backExceptionMsg='" + backExceptionMsg + '\'' +
+                ", backCode=" + backCode +
+                ", backCode_Msg='" + backCode_Msg + '\'' +
+                ", obj=" + obj +
+                '}';
+    }
 }

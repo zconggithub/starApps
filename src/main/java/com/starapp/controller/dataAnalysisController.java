@@ -3,15 +3,12 @@ package com.starapp.controller;
 import com.alibaba.fastjson.JSON;
 import com.starapp.common.BackMessage;
 import com.starapp.common.EnumCodeMsg;
-import com.starapp.common.Excel2007Reader;
 //import com.starapp.common.SaxExcelUtils;
+import com.starapp.common.ParseExcel;
 import com.starapp.entity.TInvoiceData;
 import com.starapp.service.TInvoiceDataService;
 import org.apache.log4j.Logger;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.openxml4j.exceptions.OpenXML4JException;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,9 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.xml.sax.SAXException;
 
-import javax.servlet.http.HttpServletRequest;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigDecimal;
@@ -75,7 +69,7 @@ public class dataAnalysisController {
         List<TInvoiceData> list = new ArrayList<TInvoiceData>();
         TInvoiceData tInvoiceData = null;
         long start_time = System.currentTimeMillis();
-        Excel2007Reader excel2007Reader = new Excel2007Reader();
+        ParseExcel excel2007Reader = new ParseExcel();
 
         List<List<String>> rowList = null;
         try {

@@ -13,8 +13,30 @@ import java.util.List;
  */
 public interface TvocherService {
 
-    //借贷总额是否相等
+
+    /**
+     * 借贷总额是否相等
+     * @return
+     */
     HashMap check_Total_loan();
-    //导入CSV文件，即插入数据库
+
+
+    /**
+     *导入CSV文件，即插入数据库
+     * @param listBean
+     * @return
+     */
     BackMessage insertBatchTvocher(List<Tvoucher> listBean);
+
+
+
+    /**
+     *导入Excel文件，即插入数据库
+     * @param listListString
+     * @return
+     */
+    BackMessage insertBatchTvocherByExcel(List<List<String>> listListString);
+
+    List<Tvoucher> getAllTvoucher();
+
 }

@@ -57,10 +57,9 @@ public  class ExcelOutPutUtil {
      * @throws IOException
      */
     public static void excleOut(List<?> listData, String fileName, String headColumn[], HttpServletResponse response){
-
 //保存在客户端
-        //设置response流信息的头类型，MIME码
-        response.setContentType("text/html;charset=UTF-8");//application/msexcel
+        //设置response流信息的头类型，MIME码//application/msexcel
+        response.setContentType("text/html;charset=UTF-8");
         try {
             response.setHeader("Content-disposition", "attachment;filename=" + URLEncoder.encode(fileName, "UTF-8") + ".xls");
         } catch (UnsupportedEncodingException e) {
@@ -69,30 +68,32 @@ public  class ExcelOutPutUtil {
         response.setCharacterEncoding("UTF-8");
 
         //通过Response把数据以Excel格式保存
-        WritableWorkbook book = null;// 编写WritableWorkbook对象，该对象代表了excel对象
+        // 编写WritableWorkbook对象，该对象代表了excel对象
+        WritableWorkbook book = null;
         WritableSheet sheet = null;
 
         // * 根据传进来的file对象创建可写入的Excel工作薄到客户端
         OutputStream os = null;
         try {
             os = response.getOutputStream();
-            book = Workbook.createWorkbook(os);//输出到客户端时候//将创建的Excel对象利用二进制流的形式强制输出到客户端去
-            sheet = book.createSheet(fileName, 0);// 获取sheet对象，sheetName为工作表的名称
+            //输出到客户端时候//将创建的Excel对象利用二进制流的形式强制输出到客户端去
+            book = Workbook.createWorkbook(os);
+            // 获取sheet对象，sheetName为工作表的名称
+            sheet = book.createSheet(fileName, 0);
         } catch (IOException e) {
             System.out.println("response :out[IOException异常]" + e.getMessage());
         }
-
-
         WritableCellFormat wcf = new WritableCellFormat();
         try {
             //创建单元格样式
             // wcf.setBackground(jxl.format.Colour.GREEN);// 背景颜色
-            wcf.setAlignment(Alignment.CENTRE); // 平行居中
-            wcf.setVerticalAlignment(VerticalAlignment.CENTRE); // 垂直居中
+            // 平行居中
+            wcf.setAlignment(Alignment.CENTRE);
+            // 垂直居中
+            wcf.setVerticalAlignment(VerticalAlignment.CENTRE);
         } catch (WriteException e) {
             e.printStackTrace();
         }
-
         // 判断一下表头数组是否有数据，并将表头数据添加到sheet中
         // String[] columns=ExcelOutPutUtil.headColumn;//表头数据
         try {
@@ -123,9 +124,6 @@ public  class ExcelOutPutUtil {
                 }
             }
         }
-
-        //  Label la  = new Label(j, i+1, (fi[j].get(ob)) == null ? "" : String.valueOf(fi[j].get(ob)),wcf);
-
         try {
             book.write();
             book.close();
@@ -139,8 +137,6 @@ public  class ExcelOutPutUtil {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
-
             }
         }
 

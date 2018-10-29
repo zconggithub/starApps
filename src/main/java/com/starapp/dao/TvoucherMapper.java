@@ -34,4 +34,9 @@ public interface TvoucherMapper {
      * @return批量导入
      */
     int batchInsertTvoucher(List<Tvoucher> listBean);
+
+    List<Tvoucher> getAllTvoucher();
+
+
+
 }

@@ -52,8 +52,7 @@ public class LoginController {
             log.info(JSON.toJSONString(backMessage));
             HttpSession session = request.getSession();
             session.setAttribute("user_name",user.getUserAccount());
-           /* model.addAttribute("user_name",session);*/
-           // return JSON.toJSONString(backMessage);
+            //return "/survey/survey";
             return "dashboard";
         }
     }

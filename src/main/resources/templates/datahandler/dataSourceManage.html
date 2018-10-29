@@ -53,10 +53,10 @@
             
             <div class="row">
                 <!--###############3-->
-                <div class="col-lg-12">
+                <div class="col-lg-6">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
-                            <h5>上传文件</h5>
+                            <h5>上传文件Excel</h5>
                         </div>
 
                         <div class="ibox-content">
@@ -64,12 +64,13 @@
                                 <input type="hidden" name="id"  />
                                 <input type="hidden" name="image"  />
                                 <div class="form-group"><label class="col-sm-2 control-label" style="height: 40%">数据元：</label>
-                                    <div class="col-sm-2 m-b-xs">
+                                    <div class="col-sm-5 m-b-xs">
                                         <select name="dataSource_type" id="dataSource2" class="form-control">
                                                 <option value=""></option>
                                             	<option value="StandardSubject">企业科目与标准科目</option>
                                                <option value="StandardSubjectFinance">标准科目与财务报表</option>
                                                <option value="Subject">科目</option>
+                                            <option value="Tvoucher">凭证表(100W数据测试)</option>
 
                                         </select>
                                     </div>
@@ -85,6 +86,45 @@
                                 <div class="form-group">
                                     <div class="col-sm-4 col-sm-offset-2">
                                         <button id="importFile" class="btn btn-primary"  type="submit">&nbsp;&nbsp;&nbsp;&nbsp;提&nbsp;&nbsp;&nbsp;&nbsp;交&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--CSV文件-->
+                <div class="col-lg-6">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>上传文件Csv</h5>
+                        </div>
+
+                        <div class="ibox-content">
+                            <form id="csvImport" action="/starApp/importCSV" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                                <input type="hidden" name="id"  />
+                                <input type="hidden" name="image"  />
+                                <div class="form-group"><label class="col-sm-2 control-label" style="height: 40%">数据元：</label>
+                                    <div class="col-sm-5 m-b-xs">
+                                        <select name="dataSource_type" id="csvdataSource2" class="form-control">
+                                            <option value=""></option>
+                                            <option value="Tvoucher">凭证表</option>
+                                            <option value="StandardSubjectFinance">XXXX</option>
+                                            <option value="Subject">YYYY</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div id="imputCsvCell1" class="form-group"><label class="col-sm-2 control-label"><!--图片：--></label>
+                                    <div class="col-sm-10">
+                                        <input id="import_csvfile" type="file" name="file" multiple="multiple"/>
+                                    </div>
+                                </div>
+
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group">
+                                    <div class="col-sm-4 col-sm-offset-2">
+                                        <button id="importCsvFile" class="btn btn-primary"  type="submit">&nbsp;&nbsp;&nbsp;&nbsp;提&nbsp;&nbsp;&nbsp;&nbsp;交&nbsp;&nbsp;&nbsp;&nbsp;</button>
                                     </div>
                                 </div>
                             </form>

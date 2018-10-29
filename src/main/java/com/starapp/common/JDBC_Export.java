@@ -29,8 +29,10 @@ public class JDBC_Export {
         final String user = "root";
         final String password = "EySystem";
         Connection conn = null;
-        Class.forName(name);//指定连接类型
-        conn = DriverManager.getConnection(url, user, password);//获取连接
+        //指定连接类型
+        Class.forName(name);
+        //获取连接
+        conn = DriverManager.getConnection(url, user, password);
         if (conn != null) {
             System.out.println("获取连接成功");
           // getData_No(conn,opp_detail_SQL,opp_detail_Column,opp_detail_Excel);//【备注：第一个参数conn连接不用动，第二个参数是：SQL语句{}，第三个参数是：表头信息{}。第四个参数是对应的表名。后面三个参数跟随业务变动】
@@ -51,14 +53,19 @@ public class JDBC_Export {
      * @throws IOException
      */
     public static void getData_No(Connection conn,String sql,String[] table_Column,String ExcelFileName) throws IOException {
-        SXSSFWorkbook wb = new SXSSFWorkbook(10000);			//关键语句，POI对大数据量指定
+        //关键语句，POI对大数据量指定
+        SXSSFWorkbook wb = new SXSSFWorkbook(10000);
         //对上述语句的解释【在生成Workbook 时给工作簿一个内存数据存在条数，这样一旦这个Workbook 中数据量超过10000就会写入到磁盘中，减少内存的使用量来提高速度和避免溢出。】
-        Sheet sheet = wb.createSheet();		//工作表对象
-        Row nRow = null;		//行对象
-        Cell nCell = null;		//列对象
-        HashMap<String,Object> hashMap=new HashMap<>();//String:此处是表字段,Object是对应的列值
+        //工作表对象
+        Sheet sheet = wb.createSheet();
+        //行对象
+        Row nRow = null;
+        //列对象
+        Cell nCell = null;
+        //String:此处是表字段,Object是对应的列值
+        HashMap<String,Object> hashMap=new HashMap<>();
         // 开始时间
-        Long begin = new Date().getTime();
+        Long begin = System.currentTimeMillis();
         PreparedStatement pst = null;
         ResultSet rs = null;
        // String getDataSet_Sql = "SELECT * FROM kj_pzjk_valid_pzh_opp_detail ORDER by pzh";//获取数据集合
@@ -99,7 +106,7 @@ public class JDBC_Export {
             fOut.flush();		//刷新缓冲区
             fOut.close();
             System.out.println("最终数据量："+rowCount);
-            Long end = new Date().getTime();
+            Long end = System.currentTimeMillis();
             System.out.println("导出时间："+(end-begin)+"ms");
         } catch (SQLException e1) {
             e1.printStackTrace();

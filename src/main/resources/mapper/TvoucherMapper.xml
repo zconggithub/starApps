@@ -48,7 +48,7 @@
       SHR, ZDR, JZR, CN, 
       FJS, CREATEMAN, CREATEDATE, 
       UPDATEMAN, UPDATEDATE)
-    values (#{id,jdbcType=BIGINT}, #{ndDm,jdbcType=VARCHAR}, #{kjqj,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=BIGINT}, #{ndDm,jdbcType=VARCHAR}, #{kjqj,jdbcType=INTEGER},
       #{pzz,jdbcType=VARCHAR}, #{pzh,jdbcType=VARCHAR}, #{flh,jdbcType=INTEGER}, #{pzRq,jdbcType=TIMESTAMP}, 
       #{flzy,jdbcType=VARCHAR}, #{kmDm,jdbcType=VARCHAR}, #{jfje,jdbcType=DECIMAL}, #{dfje,jdbcType=DECIMAL}, 
       #{wbbz,jdbcType=VARCHAR}, #{wbjfje,jdbcType=DECIMAL}, #{wbdfje,jdbcType=DECIMAL}, 
@@ -301,14 +301,31 @@
   </update>
 
 
-<!--构造一个hashMap来存放存储过程的值.【无入参和反参】-->
+<!--构造一个hashMap来存放存储过程check_Total_loan的值.【无入参和返参】-->
   <resultMap type="java.util.HashMap" id="check_TotalResultMap">
     <result column="JDZE" property="jdze" javaType="java.math.BigDecimal" jdbcType="DECIMAL"/>
     <result column="DFZE" property="dfze" javaType="java.math.BigDecimal" jdbcType="DECIMAL"/>
     <result column="back_Msg" property="backMsg" javaType="java.lang.String" jdbcType="VARCHAR"/>
   </resultMap>
-  <!--调用存储过程：测试1，检查借贷总额是否相等-->
+  <!--【调用存储过程】：检查借贷总额是否相等-->
   <select id="check_Total_loan" statementType="CALLABLE" resultMap="check_TotalResultMap">
       call check_Total_loan();
   </select>
+
+  <!--此处应该多注意：特别是主键自增形式-->
+  <insert id="batchInsertTvoucher" useGeneratedKeys="true" keyProperty="id" parameterType="java.util.List">
+    insert into t_voucher(ND_DM,KJQJ,PZZ,PZH,FLH,PZ_RQ,FLZY,KM_DM,JFJE,DFJE,WBBZ,WBJFJE,
+    WBDFJE,SHR,ZDR,JZR,CN,FJS,UPDATEMAN,UPDATEDATE)values
+    <foreach collection="list" item="item" index="index"  separator=",">
+      (#{item.ndDm},#{item.kjqj},#{item.pzz},#{item.pzh},#{item.flh},#{item.pzRq},
+      #{item.flzy},#{item.kmDm},#{item.jfje},#{item.dfje},#{item.wbbz},#{item.wbjfje},
+      #{item.wbdfje},#{item.shr},#{item.zdr},#{item.jzr},#{item.cn}, #{item.fjs},
+      SYSDATE(),SYSDATE())
+    </foreach>
+  </insert>
+  
+  <select id="getAllTvoucher" resultMap="BaseResultMap">
+    select * from t_voucher where 1=1;
+  </select>
+
 </mapper>
